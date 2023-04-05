@@ -118,5 +118,35 @@
         "resource_id": 112
       }
     ]
+  },
+  {
+    "name": "Urdu",
+    "translations": [
+      {
+        "translation_name": "Maulana Muhammad Junagarhi",
+        "author_name": "Maulana Muhammad Junagarhi",
+        "resource_id": 54
+      },
+      {
+        "translation_name": "Fe Zilal al-Qur'an",
+        "author_name": "Sayyid Ibrahim Qutb",
+        "resource_id": 156
+      },
+      {
+        "translation_name": "Shaykh al-Hind Mahmud al-Hasan(with Tafsir E Usmani)",
+        "author_name": "Shaykh al-Hind Mahmud al-Hasan",
+        "resource_id": 151
+      },
+      {
+        "translation_name": "Bayan-ul-Quran",
+        "author_name": "Dr. Israr Ahmad",
+        "resource_id": 158
+      },
+      {
+        "translation_name": "Tafheem e Qur'an - Syed Abu Ali Maududi",
+        "author_name": "Syed Abu Ali Maududi",
+        "resource_id": 97
+      }
+    ]
   }
 ]

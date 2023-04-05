@@ -5,7 +5,7 @@ enum EBottomNavBarItems { home, more }
 enum EThemeModes { light, dark, quran, green }
 
 /// Language Modes
-enum ESupportedLanguage { en, tr, ar }
+enum ESupportedLanguage { en, tr, ur, ar }
 
 /// Different types of quran
 enum EQuranType { translation, reading }

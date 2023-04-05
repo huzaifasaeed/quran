@@ -53,7 +53,7 @@ class _BookmarkCardState extends State<BookmarkCard>
       child: Slidable(
         key: UniqueKey(),
         endActionPane: ActionPane(
-          extentRatio: 0.30,
+          extentRatio: 0.32,
           motion: const ScrollMotion(),
           children: [
             DeleteVerseButton(
