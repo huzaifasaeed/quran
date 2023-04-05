@@ -11,13 +11,15 @@ import '../database/local_db.dart';
 import '../managers/surah_detail_navigation_manager.dart';
 import '../models/reading_settings_model.dart';
 import '../models/surah_model.dart';
+import '../models/translation.dart';
 import '../models/verse_model.dart';
 import 'app_settings_provider.dart';
 import 'bookmark_provider.dart';
 
 class SurahDetailsProvider extends ChangeNotifier {
   /// Class Constructor
-  SurahDetailsProvider(this._context, this.readingSettings, EQuranType quranType) {
+  SurahDetailsProvider(
+      this._context, this.readingSettings, EQuranType quranType) {
     quranProvider.changeQuranType(quranType.index);
     getDisplayedSurahs();
     getDisplayedVerses();
@@ -43,7 +45,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   QuranProvider get quranProvider => _context.read<QuranProvider>();
 
   /// Get [AppSettingsProvider]
-  AppSettingsProvider get appSettingsProvider => _context.read<AppSettingsProvider>();
+  AppSettingsProvider get appSettingsProvider =>
+      _context.read<AppSettingsProvider>();
 
   /// List of surahs which are displayed in the [SurahDetailsScreen] in [TranslationScreen]
   List<SurahModel> displayedSurahs = [];
@@ -72,7 +75,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   /// Navigation to the specific verse
   int get jumpToVerseIndex {
     int value = displayedVerses.indexWhere((element) {
-      return element.surahId == readingSettings.surahId && element.verseNumber == readingSettings.verseId;
+      return element.surahId == readingSettings.surahId &&
+          element.verseNumber == readingSettings.verseId;
     });
     return value == -1 ? 0 : value;
   }
@@ -80,7 +84,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   /// Navigation to the specific page
   int get jumpToMushafPageListIndex {
     int value = mushafPageList.indexWhere((element) {
-      return element.first.verses.first.pageNumber == readingSettings.mushafPageNumber;
+      return element.first.verses.first.pageNumber ==
+          readingSettings.mushafPageNumber;
     });
     return value == -1 ? 0 : value;
   }
@@ -92,7 +97,8 @@ class SurahDetailsProvider extends ChangeNotifier {
       case EQuranType.translation:
         switch (readingSettings.surahDetailScreenMode) {
           case ESurahDetailScreenMode.surah:
-            displayedSurahs.add(quranProvider.surahs[readingSettings.surahIndex]);
+            displayedSurahs
+                .add(quranProvider.surahs[readingSettings.surahIndex]);
             break;
           case ESurahDetailScreenMode.juz:
             List<SurahModel> list = [];
@@ -152,7 +158,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   /// Declares scroll position when it stops on specific surah and ayat
   listenToTranslationScreenList(int index) {
     var verse = displayedVerses[index];
-    if (verse.verseNumber == readingSettings.verseId && verse.surahId == readingSettings.surahId) {
+    if (verse.verseNumber == readingSettings.verseId &&
+        verse.surahId == readingSettings.surahId) {
       return;
     }
     readingSettings.surahId = verse.surahId ?? 1;
@@ -175,11 +182,15 @@ class SurahDetailsProvider extends ChangeNotifier {
   String get appBarTitle {
     switch (quranProvider.localSetting.quranType) {
       case EQuranType.translation:
-        return quranProvider.surahs[readingSettings.surahIndex].nameSimple ?? "";
+        return quranProvider.surahs[readingSettings.surahIndex].nameSimple ??
+            "";
       case EQuranType.reading:
-        var index = displayedVerses.indexWhere((element) => element.pageNumber == readingSettings.mushafPageNumber);
+        var index = displayedVerses.indexWhere((element) =>
+            element.pageNumber == readingSettings.mushafPageNumber);
         if (index == -1) return "";
-        return quranProvider.surahs[displayedVerses[index].surahId! - 1].nameSimple ?? "";
+        return quranProvider
+                .surahs[displayedVerses[index].surahId! - 1].nameSimple ??
+            "";
     }
   }
 
@@ -188,10 +199,12 @@ class SurahDetailsProvider extends ChangeNotifier {
     VerseModel verse;
     switch (quranProvider.localSetting.quranType) {
       case EQuranType.translation:
-        verse = quranProvider.surahs[readingSettings.surahIndex].verses[readingSettings.verseIndex];
+        verse = quranProvider.surahs[readingSettings.surahIndex]
+            .verses[readingSettings.verseIndex];
         break;
       case EQuranType.reading:
-        var index = displayedVerses.indexWhere((element) => element.pageNumber == readingSettings.mushafPageNumber);
+        var index = displayedVerses.indexWhere((element) =>
+            element.pageNumber == readingSettings.mushafPageNumber);
         if (index == -1) return "";
         verse = displayedVerses[index];
     }
@@ -206,14 +219,18 @@ class SurahDetailsProvider extends ChangeNotifier {
         surahId = quranProvider.surahs[readingSettings.surahIndex].id;
         break;
       case EQuranType.reading:
-        var index = displayedVerses.indexWhere((element) => element.pageNumber == readingSettings.mushafPageNumber);
+        var index = displayedVerses.indexWhere((element) =>
+            element.pageNumber == readingSettings.mushafPageNumber);
         if (index == -1) surahId = null;
         surahId = quranProvider.surahs[displayedVerses[index].surahId! - 1].id;
     }
     if (surahId == null) return false;
     var bookMarks = LocalDb.getBookmarks;
-    var list = bookMarks.where((element) => element.bookmarkType == EBookMarkType.surah).toList();
-    var index = list.indexWhere((element) => element.verseModel.surahId == surahId);
+    var list = bookMarks
+        .where((element) => element.bookmarkType == EBookMarkType.surah)
+        .toList();
+    var index =
+        list.indexWhere((element) => element.verseModel.surahId == surahId);
     return index == -1 ? false : true;
   }
 
@@ -222,18 +239,24 @@ class SurahDetailsProvider extends ChangeNotifier {
     VerseModel? verse;
     switch (quranProvider.localSetting.quranType) {
       case EQuranType.translation:
-        verse = quranProvider.surahs[readingSettings.surahIndex].verses[readingSettings.verseIndex];
+        verse = quranProvider.surahs[readingSettings.surahIndex]
+            .verses[readingSettings.verseIndex];
         break;
       case EQuranType.reading:
-        var index = displayedVerses.indexWhere((element) => element.pageNumber == readingSettings.mushafPageNumber);
+        var index = displayedVerses.indexWhere((element) =>
+            element.pageNumber == readingSettings.mushafPageNumber);
         if (index != -1) verse = displayedVerses[index];
         break;
     }
     if (verse == null) return;
     if (isActive) {
-      await _context.read<BookmarkProvider>().deleteBookmark(verse, EBookMarkType.surah);
+      await _context
+          .read<BookmarkProvider>()
+          .deleteBookmark(verse, EBookMarkType.surah);
     } else {
-      await _context.read<BookmarkProvider>().addBookmark(verse, EBookMarkType.surah);
+      await _context
+          .read<BookmarkProvider>()
+          .addBookmark(verse, EBookMarkType.surah);
     }
     notifyListeners();
   }
@@ -244,14 +267,19 @@ class SurahDetailsProvider extends ChangeNotifier {
 
   /// Play or Pause The Verses
   void onTapVerseCardPlayOrPause(int index, bool isPlaying) {
-    _context.read<PlayerProvider>().onTapPlayOrPause(index, isPlaying, displayedVerses);
+    _context
+        .read<PlayerProvider>()
+        .onTapPlayOrPause(index, isPlaying, displayedVerses);
   }
 
   /// Play The Mushaf Page
   void playTheMushafPage(bool isPlaying, int surahId) {
     var index = displayedSurahs.indexWhere((element) => element.id == surahId);
-    List<VerseModel> selectedVerses = index == -1 ? [] : displayedSurahs[index].verses;
-    _context.read<PlayerProvider>().onTapPlayOrPause(0, isPlaying, selectedVerses);
+    List<VerseModel> selectedVerses =
+        index == -1 ? [] : displayedSurahs[index].verses;
+    _context
+        .read<PlayerProvider>()
+        .onTapPlayOrPause(0, isPlaying, selectedVerses);
   }
 
   /// Changing reading style in the home page
@@ -260,15 +288,18 @@ class SurahDetailsProvider extends ChangeNotifier {
     quranProvider.localSetting.quranType = EQuranType.values.elementAt(index);
     switch (quranProvider.localSetting.quranType) {
       case EQuranType.translation:
-        int index = displayedVerses.indexWhere((element) => element.pageNumber == readingSettings.mushafPageNumber);
+        int index = displayedVerses.indexWhere((element) =>
+            element.pageNumber == readingSettings.mushafPageNumber);
         if (index != -1) {
           readingSettings.surahId = displayedVerses[index].surahId ?? 1;
           readingSettings.verseId = displayedVerses[index].verseNumber ?? 1;
         }
         break;
       case EQuranType.reading:
-        readingSettings.mushafPageNumber =
-            quranProvider.surahs[readingSettings.surahIndex].verses[readingSettings.verseIndex].pageNumber!;
+        readingSettings.mushafPageNumber = quranProvider
+            .surahs[readingSettings.surahIndex]
+            .verses[readingSettings.verseIndex]
+            .pageNumber!;
     }
     notifyListeners();
   }
@@ -279,7 +310,8 @@ class SurahDetailsProvider extends ChangeNotifier {
     if (readingSettings.isReadingMode == true) {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     } else {
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+          overlays: SystemUiOverlay.values);
     }
     notifyListeners();
   }
@@ -306,11 +338,25 @@ class SurahDetailsProvider extends ChangeNotifier {
   /// Share verse
   Future shareVerse(VerseModel verseModel, int index) async {
     String verseText = verseModel.text!;
-    if (_context.read<QuranProvider>().localSetting.readOptions == EReadOptions.translation) {
-      verseText = _context.read<QuranProvider>().translationService.translationsOfVerse(verseModel.id!)[index].text!;
-    } else if (_context.read<QuranProvider>().localSetting.readOptions == EReadOptions.surahAndTranslation) {
-      verseText =
-          "${verseModel.text!}\n${_context.read<QuranProvider>().translationService.translationsOfVerse(verseModel.id!)[index].text!}";
+    if (_context.read<QuranProvider>().localSetting.readOptions ==
+        EReadOptions.translation) {
+      verseText = _context
+          .read<QuranProvider>()
+          .translationService
+          .translationsOfVerse(verseModel.id!)[index]
+          .text!;
+    } else if (_context.read<QuranProvider>().localSetting.readOptions ==
+        EReadOptions.surahAndTranslation) {
+      List<VerseTranslation> tranlations = _context
+          .read<QuranProvider>()
+          .translationService
+          .translationsOfVerse(verseModel.id!);
+      verseText = verseModel.text!;
+      for (var element in tranlations) {
+        verseText += "\n\n${element.text!}";
+      }
+      verseText +=
+          "\n\n${verseModel.surahNameSimple}:${verseModel.verseNumber}";
     }
     await Share.share(verseText);
   }
@@ -319,7 +365,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   void previousButtonOnTap() {
     if (readingSettings.surahId > 1 ) {
       Navigator.pop(_context);
-      SurahDetailNavigationManager.goToSurah(_context, readingSettings.surahId - 1);
+      SurahDetailNavigationManager.goToSurah(
+          _context, readingSettings.surahId - 1);
     }
     notifyListeners();
   }
@@ -335,7 +382,8 @@ class SurahDetailsProvider extends ChangeNotifier {
   void nextButtonOnTap() {
     if (readingSettings.surahId < 114) {
       Navigator.pop(_context);
-      SurahDetailNavigationManager.goToSurah(_context, readingSettings.surahId + 1);
+      SurahDetailNavigationManager.goToSurah(
+          _context, readingSettings.surahId + 1);
     }
     notifyListeners();
   }

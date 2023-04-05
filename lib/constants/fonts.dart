@@ -21,9 +21,7 @@ class Fonts {
   static const String naskh = "Naskh";
   static const String quranFont = "Quran Font";
   static const String indoPak = "IndoPak";
-
-
-
+  static const String maiman = "Maiman";
 
   /// Translation Fonts
   static final String robotoSlab = GoogleFonts.robotoSlab().fontFamily!;
@@ -47,6 +45,8 @@ class Fonts {
     "Noore",
     "Naskh",
     "Quran Font",
+    "Naskh",
+    "Maiman"
   ];
 
   static String? getTranslationFont(String fontName) {
@@ -55,16 +55,18 @@ class Fonts {
   }
 
   static String? getArabicFont(String fontName) {
+    if (fontName == arabicFontNames[0]) return uthmanic;
     if (fontName == arabicFontNames[1]) return uthmanicBold;
-    if (fontName == arabicFontNames[2]) return majeed;
-    if (fontName == arabicFontNames[3]) return indoPak;
+    if (fontName == arabicFontNames[2]) return indoPak;
+    if (fontName == arabicFontNames[3]) return majeed;
     if (fontName == arabicFontNames[4]) return me;
     if (fontName == arabicFontNames[5]) return jameel;
     if (fontName == arabicFontNames[6]) return kufamRegular;
     if (fontName == arabicFontNames[7]) return noore;
     if (fontName == arabicFontNames[8]) return naskh;
     if (fontName == arabicFontNames[9]) return quranFont;
-    
+    if (fontName == arabicFontNames[10]) return naskh;
+    if (fontName == arabicFontNames[11]) return maiman;
     return uthmanic;
   }
 }

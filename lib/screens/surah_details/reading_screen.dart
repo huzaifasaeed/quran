@@ -20,13 +20,16 @@ class _ReadingScreenState extends State<ReadingScreen> {
   final ItemScrollController itemScrollController = ItemScrollController();
 
   /// Item position listener of Verse list
-  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      itemScrollController.jumpTo(index: context.read<SurahDetailsProvider>().jumpToMushafPageListIndex);
+      itemScrollController.jumpTo(
+          index:
+              context.read<SurahDetailsProvider>().jumpToMushafPageListIndex);
       itemPositionsListener.itemPositions.addListener(scrollListener);
     });
   }
@@ -50,19 +53,26 @@ class _ReadingScreenState extends State<ReadingScreen> {
         padding: const EdgeInsets.symmetric(horizontal: kSizeXXL),
         physics: const ClampingScrollPhysics(),
         itemBuilder: (context, index) {
-          var versesOfPage = context.watch<SurahDetailsProvider>().mushafPageList[index];
+          var versesOfPage =
+              context.watch<SurahDetailsProvider>().mushafPageList[index];
           return Column(
             children: [
               QuranPageWidget(
                 versesOfPage: versesOfPage,
-                layoutOptions: context.watch<QuranProvider>().localSetting.layoutOptions,
-                fontTypeArabic: context.watch<QuranProvider>().localSetting.fontTypeArabic,
-                textScaleFactor: context.watch<QuranProvider>().localSetting.textScaleFactor,
+                layoutOptions:
+                    context.watch<QuranProvider>().localSetting.layoutOptions,
+                fontTypeArabic:
+                    context.watch<QuranProvider>().localSetting.fontTypeArabic,
+                textScaleFactor:
+                    context.watch<QuranProvider>().localSetting.textScaleFactor,
                 onTap: context.read<SurahDetailsProvider>().changeReadingMode,
-                surahDetailsPageTheme: context.watch<QuranProvider>().surahDetailsPageThemeColor,
+                surahDetailsPageTheme:
+                    context.watch<QuranProvider>().surahDetailsPageThemeColor,
               ),
               Visibility(
-                visible: index == context.read<SurahDetailsProvider>().mushafPageList.length - 1,
+                visible: index ==
+                    context.read<SurahDetailsProvider>().mushafPageList.length -
+                        1,
                 child: const ReadingPageBottomBar(),
               ),
             ],
