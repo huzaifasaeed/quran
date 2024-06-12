@@ -49,6 +49,21 @@ Once you're on `dev` and desktop is enabled, you're ready to run the app:
 
 If you re-start your IDE, you should also see a new launch option for your current desktop platform.
 
+### Run Project 
+
+##### 1. Clone this repository to your local machine using:
+* ```https://github.com/Open-Quran/quran.git```
+##### 2. Open the project in Android Studio or Visual Studio Code
+##### 3. Install the required dependencies by running:
+* ```flutter pub get```
+##### 4. Add below lines to the ```local.properties``` file in the Android folder. You need to specify sdk versions in order to run in Android:
+* ```flutter.minSdkVersion = 21```
+* ```flutter.compileSdkVersion = 31```
+* ```flutter.compileSdkVersion = 31```
+##### 5. Download ```google-service.json``` file from the firebase [Firebase Doc](https://support.google.com/firebase/answer/7015592?hl=en#zippy=%2Cin-this-article)
+##### 6. Finally run the project with:
+* ```flutter run```
+
 ### File Structure
 
 A High-level overview of the project structure:
@@ -104,7 +119,7 @@ May Allah reward all the awesome [Contributors](https://github.com/fabrikod/the-
 * [Flutter](https://flutter.dev/)
 * [Figma](https://www.figma.com/)
 * [Material Design Components](https://github.com/material-components/material-components-android)
-* [Quran.com](https://quran.api-docs.io/v4)
+* [Quran.com API](https://api-docs.quran.com)
 
 
 

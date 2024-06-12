@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_open_quran/constants/constants.dart';
 
-import '../../constants/colors.dart';
-import '../../constants/padding.dart';
 import '../../models/verse_model.dart';
 
 class SearchVerseCard extends StatelessWidget {
@@ -62,7 +60,7 @@ class SearchVerseCard extends StatelessWidget {
     return Text(
       verseModel.text ?? "",
       textDirection: TextDirection.rtl,
-      style: context.theme.textTheme.headline1!.copyWith(height: 2),
+      style: context.theme.textTheme.headlineMedium!.copyWith(height: 2),
     );
   }
 
@@ -80,7 +78,7 @@ class SearchVerseCard extends StatelessWidget {
   /// Verse surah name in english
   Widget verseSurahNameTranslated(BuildContext context) {
     return Text(
-      "${verseModel.surahNameTranslated},  " ?? "",
+      "${verseModel.surahNameTranslated},  ",
       overflow: TextOverflow.ellipsis,
       style: context.theme.textTheme.titleMedium!
           .copyWith(color: AppColors.white5),
