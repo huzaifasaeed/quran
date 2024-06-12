@@ -101,4 +101,7 @@ flutter:
     - family: Naskh
       fonts:
         - asset: assets/fonts/Naskh.ttf
+    - family: NooreHira
+      fonts:
+        - asset: assets/fonts/noorehira.ttf
     

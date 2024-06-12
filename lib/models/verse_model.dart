@@ -9,6 +9,7 @@ class VerseModel {
   int? sajdahNumber;
   int? pageNumber;
   String? text;
+  String? textIndoPak;
   String? audioUrl;
   String? surahNameArabic;
   String? surahNameTranslated;
@@ -25,6 +26,7 @@ class VerseModel {
       this.sajdahNumber,
       this.pageNumber,
       this.text,
+      this.textIndoPak,
       this.audioUrl,
       this.surahNameArabic,
       this.surahNameSimple,
@@ -32,7 +34,7 @@ class VerseModel {
 
   @override
   String toString() {
-    return 'VerseModel{id: $id, verseNumber: $verseNumber, surahId: $surahId, verseKey: $verseKey, juzNumber: $juzNumber, hizbNumber: $hizbNumber, rubElHizbNumber: $rubElHizbNumber, sajdahNumber: $sajdahNumber, pageNumber: $pageNumber, text: $text, audioUrl: $audioUrl, surahNameArabic: $surahNameArabic, surahNameTranslated: $surahNameTranslated, surahNameSimple: $surahNameSimple}';
+    return 'VerseModel{id: $id, verseNumber: $verseNumber, surahId: $surahId, verseKey: $verseKey, juzNumber: $juzNumber, hizbNumber: $hizbNumber, rubElHizbNumber: $rubElHizbNumber, sajdahNumber: $sajdahNumber, pageNumber: $pageNumber, text: $text, textIndoPak: $textIndoPak, audioUrl: $audioUrl, surahNameArabic: $surahNameArabic, surahNameTranslated: $surahNameTranslated, surahNameSimple: $surahNameSimple}';
   }
 
   VerseModel.fromJson(Map<String, dynamic> json) {
@@ -46,6 +48,7 @@ class VerseModel {
     sajdahNumber = json['sajdah_number'];
     pageNumber = json['page_number'];
     text = json['text'];
+    textIndoPak = json['textIndoPak'];
     audioUrl = json['audio_url'];
     surahNameTranslated = json['surah_name_translated'];
     surahNameArabic = json['surah_name_arabic'];
@@ -78,6 +81,7 @@ class VerseModel {
     data['sajdah_number'] = sajdahNumber;
     data['page_number'] = pageNumber;
     data['text'] = text;
+    data['textIndoPak'] = textIndoPak;
     data['audio_url'] = audioUrl;
     data['surah_name_translated'] = surahNameTranslated;
     data['surah_name_arabic'] = surahNameArabic;
