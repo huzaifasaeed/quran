@@ -41,7 +41,7 @@ class _HelpGuideCardState extends State<HelpGuideCard> {
                 ? Icons.arrow_drop_up_rounded
                 : Icons.arrow_drop_down_rounded,
             size: 40,
-            color: context.theme.iconTheme.color,
+            color: context.theme.textTheme.bodyMedium!.color,
           ),
           onExpansionChanged: changeExpanded,
           backgroundColor: context.theme.cardTheme.color?.withOpacity(0.1),

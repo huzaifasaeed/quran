@@ -1,6 +1,6 @@
 {
-    "name": "fabrikod_quran",
-    "short_name": "fabrikod_quran",
+    "name": "al_quran",
+    "short_name": "al_quran",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

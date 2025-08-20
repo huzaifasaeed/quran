@@ -3,8 +3,8 @@
     "name": "English",
     "translations": [
       {
-        "translation_name": "Abdul Haleem",
-        "author_name": "Abdul Haleem",
+        "translation_name": "M.A.S. Abdel Haleem",
+        "author_name": "M.A.S. Abdel Haleem",
         "resource_id": 85
       },
       {
@@ -28,7 +28,7 @@
         "resource_id": 207
       },
       {
-        "translation_name": "Fadel Soliman, Bridges’ translation",
+        "translation_name": "Fadel Soliman, Bridges' translation",
         "author_name": "Fadel Soliman",
         "resource_id": 149
       },
@@ -85,6 +85,786 @@
     ]
   },
   {
+    "name": "Albanian",
+    "translations": [
+      {
+        "translation_name": "Hasan Efendi Nahi",
+        "author_name": "Hasan Efendi Nahi",
+        "resource_id": 88
+      },
+      {
+        "translation_name": "Albanian",
+        "author_name": "Unknown",
+        "resource_id": 47
+      },
+      {
+        "translation_name": "Sherif Ahmeti",
+        "author_name": "Sherif Ahmeti",
+        "resource_id": 89
+      }
+    ]
+  },
+  {
+    "name": "Amazigh",
+    "translations": [
+      {
+        "translation_name": "Ramdane At Mansour",
+        "author_name": "Ramdane At Mansour",
+        "resource_id": 236
+      }
+    ]
+  },
+  {
+    "name": "Amharic",
+    "translations": [
+      {
+        "translation_name": "Sadiq and Sani",
+        "author_name": "Sadiq and Sani",
+        "resource_id": 87
+      }
+    ]
+  },
+  {
+    "name": "Assamese",
+    "translations": [
+      {
+        "translation_name": "Shaykh Rafeequl Islam Habibur-Rahman",
+        "author_name": "Shaykh Rafeequl Islam Habibur-Rahman",
+        "resource_id": 120
+      }
+    ]
+  },
+  {
+    "name": "Azeri",
+    "translations": [
+      {
+        "translation_name": "Alikhan Musayev",
+        "author_name": "Alikhan Musayev",
+        "resource_id": 75
+      },
+      {
+        "translation_name": "Azerbaijani",
+        "author_name": "Unknown",
+        "resource_id": 23
+      }
+    ]
+  },
+  {
+    "name": "Bambara",
+    "translations": [
+      {
+        "translation_name": "Baba Mamady Jani",
+        "author_name": "Baba Mamady Jani",
+        "resource_id": 796
+      },
+      {
+        "translation_name": "Suliman Kanti",
+        "author_name": "Suliman Kanti",
+        "resource_id": 795
+      }
+    ]
+  },
+  {
+    "name": "Bengali",
+    "translations": [
+      {
+        "translation_name": "Taisirul Quran",
+        "author_name": "Unknown",
+        "resource_id": 161
+      },
+      {
+        "translation_name": "Sheikh Mujibur Rahman",
+        "author_name": "Sheikh Mujibur Rahman",
+        "resource_id": 163
+      },
+      {
+        "translation_name": "Rawai Al-bayan",
+        "author_name": "Unknown",
+        "resource_id": 162
+      },
+      {
+        "translation_name": "Dr. Abu Bakr Muhammad Zakaria",
+        "author_name": "Dr. Abu Bakr Muhammad Zakaria",
+        "resource_id": 213
+      }
+    ]
+  },
+  {
+    "name": "Bosnian",
+    "translations": [
+      {
+        "translation_name": "Dar Al-Salam Center",
+        "author_name": "Dar Al-Salam Center",
+        "resource_id": 214
+      },
+      {
+        "translation_name": "Muhamed Mehanović",
+        "author_name": "Muhamed Mehanović",
+        "resource_id": 25
+      },
+      {
+        "translation_name": "Besim Korkut",
+        "author_name": "Besim Korkut",
+        "resource_id": 126
+      }
+    ]
+  },
+  {
+    "name": "Bulgarian",
+    "translations": [
+      {
+        "translation_name": "Tzvetan Theophanov",
+        "author_name": "Tzvetan Theophanov",
+        "resource_id": 237
+      }
+    ]
+  },
+  {
+    "name": "Central Khmer",
+    "translations": [
+      {
+        "translation_name": "Cambodian Muslim Community Development",
+        "author_name": "Cambodian Muslim Community Development",
+        "resource_id": 128
+      }
+    ]
+  },
+  {
+    "name": "Chechen",
+    "translations": [
+      {
+        "translation_name": "Magomed Magomedov",
+        "author_name": "Magomed Magomedov",
+        "resource_id": 106
+      }
+    ]
+  },
+  {
+    "name": "Chinese",
+    "translations": [
+      {
+        "translation_name": "Chinese Translation (Simplified) - Ma Jain",
+        "author_name": "Ma Jain",
+        "resource_id": 56
+      },
+      {
+        "translation_name": "Muhammad Makin",
+        "author_name": "Muhammad Makin",
+        "resource_id": 109
+      }
+    ]
+  },
+  {
+    "name": "Czech",
+    "translations": [
+      {
+        "translation_name": "Czech",
+        "author_name": "Unknown",
+        "resource_id": 26
+      }
+    ]
+  },
+  {
+    "name": "Dari",
+    "translations": [
+      {
+        "translation_name": "Mawlawi Muhammad Anwar Badkhashani",
+        "author_name": "Mawlawi Muhammad Anwar Badkhashani",
+        "resource_id": 785
+      }
+    ]
+  },
+  {
+    "name": "Divehi",
+    "translations": [
+      {
+        "translation_name": "Office of the president of Maldives",
+        "author_name": "Office of the president of Maldives",
+        "resource_id": 86
+      },
+      {
+        "translation_name": "Abu Bakr Ibrahim Ali (Bakurube)",
+        "author_name": "Abu Bakr Ibrahim Ali",
+        "resource_id": 840
+      }
+    ]
+  },
+  {
+    "name": "Dutch",
+    "translations": [
+      {
+        "translation_name": "Malak Faris Abdalsalaam",
+        "author_name": "Malak Faris Abdalsalaam",
+        "resource_id": 235
+      },
+      {
+        "translation_name": "Sofian S. Siregar",
+        "author_name": "Sofian S. Siregar",
+        "resource_id": 144
+      }
+    ]
+  },
+  {
+    "name": "Finnish",
+    "translations": [
+      {
+        "translation_name": "Finnish",
+        "author_name": "Unknown",
+        "resource_id": 30
+      }
+    ]
+  },
+  {
+    "name": "French",
+    "translations": [
+      {
+        "translation_name": "Montada Islamic Foundation",
+        "author_name": "Montada Islamic Foundation",
+        "resource_id": 136
+      },
+      {
+        "translation_name": "Muhammad Hamidullah",
+        "author_name": "Muhammad Hamidullah",
+        "resource_id": 31
+      },
+      {
+        "translation_name": "Rashid Maash",
+        "author_name": "Rashid Maash",
+        "resource_id": 779
+      }
+    ]
+  },
+  {
+    "name": "Ganda",
+    "translations": [
+      {
+        "translation_name": "African Development Foundation",
+        "author_name": "African Development Foundation",
+        "resource_id": 232
+      }
+    ]
+  },
+  {
+    "name": "German",
+    "translations": [
+      {
+        "translation_name": "Abu Reda Muhammad ibn Ahmad",
+        "author_name": "Abu Reda Muhammad ibn Ahmad",
+        "resource_id": 208
+      },
+      {
+        "translation_name": "Frank Bubenheim and Nadeem",
+        "author_name": "Frank Bubenheim and Nadeem",
+        "resource_id": 27
+      }
+    ]
+  },
+  {
+    "name": "Gujarati",
+    "translations": [
+      {
+        "translation_name": "Rabila Al-Umry",
+        "author_name": "Rabila Al-Umry",
+        "resource_id": 225
+      }
+    ]
+  },
+  {
+    "name": "Hausa",
+    "translations": [
+      {
+        "translation_name": "Hausa Translation(Abubakar Gumi)",
+        "author_name": "Abubakar Gumi",
+        "resource_id": 32
+      },
+      {
+        "translation_name": "Abubakar Mahmood Jummi",
+        "author_name": "Abubakar Mahmood Jummi",
+        "resource_id": 115
+      }
+    ]
+  },
+  {
+    "name": "Hebrew",
+    "translations": [
+      {
+        "translation_name": "Dar Al-Salam Center",
+        "author_name": "Dar Al-Salam Center",
+        "resource_id": 233
+      }
+    ]
+  },
+  {
+    "name": "Hindi",
+    "translations": [
+      {
+        "translation_name": "Maulana Azizul Haque al-Umari",
+        "author_name": "Maulana Azizul Haque al-Umari",
+        "resource_id": 122
+      }
+    ]
+  },
+  {
+    "name": "Indonesian",
+    "translations": [
+      {
+        "translation_name": "King Fahad Quran Complex",
+        "author_name": "King Fahad Quran Complex",
+        "resource_id": 134
+      },
+      {
+        "translation_name": "The Sabiq Company",
+        "author_name": "The Sabiq Company",
+        "resource_id": 141
+      },
+      {
+        "translation_name": "Indonesian Islamic Affairs Ministry",
+        "author_name": "Indonesian Islamic Affairs Ministry",
+        "resource_id": 33
+      }
+    ]
+  },
+  {
+    "name": "Italian",
+    "translations": [
+      {
+        "translation_name": "Hamza Roberto Piccardo",
+        "author_name": "Hamza Roberto Piccardo",
+        "resource_id": 153
+      },
+      {
+        "translation_name": "Othman al-Sharif",
+        "author_name": "Othman al-Sharif",
+        "resource_id": 209
+      }
+    ]
+  },
+  {
+    "name": "Japanese",
+    "translations": [
+      {
+        "translation_name": "Ryoichi Mita",
+        "author_name": "Ryoichi Mita",
+        "resource_id": 35
+      },
+      {
+        "translation_name": "Saeed Sato",
+        "author_name": "Saeed Sato",
+        "resource_id": 218
+      }
+    ]
+  },
+  {
+    "name": "Kannada",
+    "translations": [
+      {
+        "translation_name": "Kannada Translation",
+        "author_name": "Unknown",
+        "resource_id": 771
+      }
+    ]
+  },
+  {
+    "name": "Kazakh",
+    "translations": [
+      {
+        "translation_name": "Khalifa Altay",
+        "author_name": "Khalifa Altay",
+        "resource_id": 222
+      },
+      {
+        "translation_name": "Khalifah Altai",
+        "author_name": "Khalifah Altai",
+        "resource_id": 113
+      }
+    ]
+  },
+  {
+    "name": "Kinyarwanda",
+    "translations": [
+      {
+        "translation_name": "The Rwanda Muslims Association team",
+        "author_name": "The Rwanda Muslims Association team",
+        "resource_id": 774
+      }
+    ]
+  },
+  {
+    "name": "Korean",
+    "translations": [
+      {
+        "translation_name": "Korean",
+        "author_name": "Unknown",
+        "resource_id": 36
+      },
+      {
+        "translation_name": "Hamed Choi",
+        "author_name": "Hamed Choi",
+        "resource_id": 219
+      }
+    ]
+  },
+  {
+    "name": "Kurdish",
+    "translations": [
+      {
+        "translation_name": "Burhan Muhammad-Amin",
+        "author_name": "Burhan Muhammad-Amin",
+        "resource_id": 81
+      },
+      {
+        "translation_name": "Muhammad Saleh Bamoki",
+        "author_name": "Muhammad Saleh Bamoki",
+        "resource_id": 143
+      }
+    ]
+  },
+  {
+    "name": "Macedonian",
+    "translations": [
+      {
+        "translation_name": "Macedonian Scholars",
+        "author_name": "Macedonian Scholars",
+        "resource_id": 788
+      }
+    ]
+  },
+  {
+    "name": "Malay",
+    "translations": [
+      {
+        "translation_name": "Abdullah Muhammad Basmeih",
+        "author_name": "Abdullah Muhammad Basmeih",
+        "resource_id": 39
+      }
+    ]
+  },
+  {
+    "name": "Malayalam",
+    "translations": [
+      {
+        "translation_name": "Muhammad Karakunnu and Vanidas Elayavoor",
+        "author_name": "Muhammad Karakunnu and Vanidas Elayavoor",
+        "resource_id": 80
+      },
+      {
+        "translation_name": "Abdul-Hamid Haidar & Kanhi Muhammad",
+        "author_name": "Abdul-Hamid Haidar & Kanhi Muhammad",
+        "resource_id": 224
+      },
+      {
+        "translation_name": "Malayalam Translation(Abdul Hameed and Kunhi)",
+        "author_name": "Abdul Hameed and Kunhi",
+        "resource_id": 37
+      }
+    ]
+  },
+  {
+    "name": "Maranao",
+    "translations": [
+      {
+        "translation_name": "Maranao",
+        "author_name": "Unknown",
+        "resource_id": 38
+      }
+    ]
+  },
+  {
+    "name": "Marathi",
+    "translations": [
+      {
+        "translation_name": "Muhammad Shafi'i Ansari",
+        "author_name": "Muhammad Shafi'i Ansari",
+        "resource_id": 226
+      }
+    ]
+  },
+  {
+    "name": "Nepali",
+    "translations": [
+      {
+        "translation_name": "Ahl Al-Hadith Central Society of Nepal",
+        "author_name": "Ahl Al-Hadith Central Society of Nepal",
+        "resource_id": 108
+      }
+    ]
+  },
+  {
+    "name": "Norwegian",
+    "translations": [
+      {
+        "translation_name": "Norwegian",
+        "author_name": "Unknown",
+        "resource_id": 41
+      }
+    ]
+  },
+  {
+    "name": "Oromo",
+    "translations": [
+      {
+        "translation_name": "Ghali Apapur Apaghuna",
+        "author_name": "Ghali Apapur Apaghuna",
+        "resource_id": 111
+      }
+    ]
+  },
+  {
+    "name": "Pashto",
+    "translations": [
+      {
+        "translation_name": "Zakaria Abulsalam",
+        "author_name": "Zakaria Abulsalam",
+        "resource_id": 118
+      }
+    ]
+  },
+  {
+    "name": "Persian",
+    "translations": [
+      {
+        "translation_name": "IslamHouse.com",
+        "author_name": "IslamHouse.com",
+        "resource_id": 135
+      },
+      {
+        "translation_name": "Hussein Taji Kal Dari",
+        "author_name": "Hussein Taji Kal Dari",
+        "resource_id": 29
+      }
+    ]
+  },
+  {
+    "name": "Polish",
+    "translations": [
+      {
+        "translation_name": "Józef Bielawski",
+        "author_name": "Józef Bielawski",
+        "resource_id": 42
+      }
+    ]
+  },
+  {
+    "name": "Portuguese",
+    "translations": [
+      {
+        "translation_name": "Helmi Nasr",
+        "author_name": "Helmi Nasr",
+        "resource_id": 103
+      },
+      {
+        "translation_name": "Portuguese Translation(Samir)",
+        "author_name": "Samir",
+        "resource_id": 43
+      }
+    ]
+  },
+  {
+    "name": "Romanian",
+    "translations": [
+      {
+        "translation_name": "Grigore",
+        "author_name": "Grigore",
+        "resource_id": 44
+      },
+      {
+        "translation_name": "Islamic and Cultural League",
+        "author_name": "Islamic and Cultural League",
+        "resource_id": 782
+      }
+    ]
+  },
+  {
+    "name": "Russian",
+    "translations": [
+      {
+        "translation_name": "Abu Adel",
+        "author_name": "Abu Adel",
+        "resource_id": 79
+      },
+      {
+        "translation_name": "Ministry of Awqaf, Egypt",
+        "author_name": "Ministry of Awqaf, Egypt",
+        "resource_id": 78
+      },
+      {
+        "translation_name": "Russian Translation (Elmir Kuliev)",
+        "author_name": "Elmir Kuliev",
+        "resource_id": 45
+      }
+    ]
+  },
+  {
+    "name": "Serbian",
+    "translations": [
+      {
+        "translation_name": "Dar Al-Salam Center",
+        "author_name": "Dar Al-Salam Center",
+        "resource_id": 215
+      }
+    ]
+  },
+  {
+    "name": "Sindhi",
+    "translations": [
+      {
+        "translation_name": "Taj Mehmood Amroti",
+        "author_name": "Taj Mehmood Amroti",
+        "resource_id": 238
+      }
+    ]
+  },
+  {
+    "name": "Sinhala, Sinhalese",
+    "translations": [
+      {
+        "translation_name": "Translation Pioneers Center",
+        "author_name": "Translation Pioneers Center",
+        "resource_id": 228
+      }
+    ]
+  },
+  {
+    "name": "Somali",
+    "translations": [
+      {
+        "translation_name": "Mahmud Muhammad Abduh",
+        "author_name": "Mahmud Muhammad Abduh",
+        "resource_id": 46
+      },
+      {
+        "translation_name": "Abdullah Hassan Yacoub",
+        "author_name": "Abdullah Hassan Yacoub",
+        "resource_id": 786
+      }
+    ]
+  },
+  {
+    "name": "Spanish",
+    "translations": [
+      {
+        "translation_name": "Sheikh Isa Garcia",
+        "author_name": "Sheikh Isa Garcia",
+        "resource_id": 83
+      },
+      {
+        "translation_name": "Montada Islamic Foundation",
+        "author_name": "Montada Islamic Foundation",
+        "resource_id": 140
+      },
+      {
+        "translation_name": "Noor International Center",
+        "author_name": "Noor International Center",
+        "resource_id": 199
+      }
+    ]
+  },
+  {
+    "name": "Swahili",
+    "translations": [
+      {
+        "translation_name": "Ali Muhsin Al-Barwani",
+        "author_name": "Ali Muhsin Al-Barwani",
+        "resource_id": 793
+      }
+    ]
+  },
+  {
+    "name": "Swedish",
+    "translations": [
+      {
+        "translation_name": "Knut Bernström",
+        "author_name": "Knut Bernström",
+        "resource_id": 48
+      }
+    ]
+  },
+  {
+    "name": "Tagalog",
+    "translations": [
+      {
+        "translation_name": "Dar Al-Salam Center",
+        "author_name": "Dar Al-Salam Center",
+        "resource_id": 211
+      }
+    ]
+  },
+  {
+    "name": "Tajik",
+    "translations": [
+      {
+        "translation_name": "Khawaja Mirof & Khawaja Mir",
+        "author_name": "Khawaja Mirof & Khawaja Mir",
+        "resource_id": 139
+      },
+      {
+        "translation_name": "Pioneers of Translation Center",
+        "author_name": "Pioneers of Translation Center",
+        "resource_id": 223
+      },
+      {
+        "translation_name": "Tajik",
+        "author_name": "Unknown",
+        "resource_id": 74
+      }
+    ]
+  },
+  {
+    "name": "Tamil",
+    "translations": [
+      {
+        "translation_name": "Sheikh Omar Sharif bin Abdul Salam",
+        "author_name": "Sheikh Omar Sharif bin Abdul Salam",
+        "resource_id": 229
+      },
+      {
+        "translation_name": "Jan Trust Foundation",
+        "author_name": "Jan Trust Foundation",
+        "resource_id": 50
+      },
+      {
+        "translation_name": "Abdul Hameed Baqavi",
+        "author_name": "Abdul Hameed Baqavi",
+        "resource_id": 133
+      }
+    ]
+  },
+  {
+    "name": "Tatar",
+    "translations": [
+      {
+        "translation_name": "Tatar",
+        "author_name": "Unknown",
+        "resource_id": 53
+      }
+    ]
+  },
+  {
+    "name": "Telugu",
+    "translations": [
+      {
+        "translation_name": "Maulana Abder-Rahim ibn Muhammad",
+        "author_name": "Maulana Abder-Rahim ibn Muhammad",
+        "resource_id": 227
+      }
+    ]
+  },
+  {
+    "name": "Thai",
+    "translations": [
+      {
+        "translation_name": "Society of Institutes and Universities",
+        "author_name": "Society of Institutes and Universities",
+        "resource_id": 230
+      },
+      {
+        "translation_name": "Thai Translation (King Fahad Quran Complex)",
+        "author_name": "King Fahad Quran Complex",
+        "resource_id": 51
+      }
+    ]
+  },
+  {
     "name": "Turkish",
     "translations": [
       {
@@ -104,7 +884,7 @@
       },
       {
         "translation_name": "Elmalili Hamdi Yazir",
-        "author_name": "Elmalili Hamdi Yazir\t",
+        "author_name": "Elmalili Hamdi Yazir",
         "resource_id": 52
       },
       {
@@ -116,6 +896,126 @@
         "translation_name": "Shaban Britch",
         "author_name": "Shaban Britch",
         "resource_id": 112
+      }
+    ]
+  },
+  {
+    "name": "Uighur, Uyghur",
+    "translations": [
+      {
+        "translation_name": "Muhammad Saleh",
+        "author_name": "Muhammad Saleh",
+        "resource_id": 76
+      }
+    ]
+  },
+  {
+    "name": "Ukrainian",
+    "translations": [
+      {
+        "translation_name": "Dr. Mikhailo Yaqubovic",
+        "author_name": "Dr. Mikhailo Yaqubovic",
+        "resource_id": 217
+      }
+    ]
+  },
+  {
+    "name": "Urdu",
+    "translations": [
+      {
+        "translation_name": "Fatah Muhammad Jalandhari",
+        "author_name": "Fatah Muhammad Jalandhari",
+        "resource_id": 234
+      },
+      {
+        "translation_name": "Maulana Muhammad Junagarhi",
+        "author_name": "Maulana Muhammad Junagarhi",
+        "resource_id": 54
+      },
+      {
+        "translation_name": "Fi Zilal al-Qur'an",
+        "author_name": "Unknown",
+        "resource_id": 156
+      },
+      {
+        "translation_name": "Shaykh al-Hind Mahmud al-Hasan(with Tafsir E Usmani)",
+        "author_name": "Shaykh al-Hind Mahmud al-Hasan",
+        "resource_id": 151
+      },
+      {
+        "translation_name": "Bayan-ul-Quran (Dr. Israr Ahmad)",
+        "author_name": "Dr. Israr Ahmad",
+        "resource_id": 158
+      },
+      {
+        "translation_name": "Tafheem e Qur'an - Syed Abu Ali Maududi",
+        "author_name": "Syed Abu Ali Maududi",
+        "resource_id": 97
+      },
+      {
+        "translation_name": "Maulana Wahiduddin Khan",
+        "author_name": "Maulana Wahiduddin Khan",
+        "resource_id": 819
+      },
+      {
+        "translation_name": "Abul Ala Maududi(Roman Urdu)",
+        "author_name": "Abul Ala Maududi",
+        "resource_id": 831
+      }
+    ]
+  },
+  {
+    "name": "Uzbek",
+    "translations": [
+      {
+        "translation_name": "Muhammad Sodiq Muhammad Yusuf (Latin)",
+        "author_name": "Muhammad Sodiq Muhammad Yusuf",
+        "resource_id": 55
+      },
+      {
+        "translation_name": "Alauddin Mansour",
+        "author_name": "Alauddin Mansour",
+        "resource_id": 101
+      },
+      {
+        "translation_name": "Muhammad Sodik Muhammad Yusuf",
+        "author_name": "Muhammad Sodik Muhammad Yusuf",
+        "resource_id": 127
+      }
+    ]
+  },
+  {
+    "name": "Vietnamese",
+    "translations": [
+      {
+        "translation_name": "Translation Pioneers Center",
+        "author_name": "Translation Pioneers Center",
+        "resource_id": 220
+      },
+      {
+        "translation_name": "Hasan Abdul-Karim",
+        "author_name": "Hasan Abdul-Karim",
+        "resource_id": 221
+      }
+    ]
+  },
+  {
+    "name": "Yau,Yuw",
+    "translations": [
+      {
+        "translation_name": "Abdul Hamid Silika",
+        "author_name": "Abdul Hamid Silika",
+        "resource_id": 798
+      }
+    ]
+  },
+  {
+    "name": "Yoruba",
+    "translations": [
+      {
+        "translation_name": "Shaykh Abu Rahimah Mikael Aykyuni",
+        "author_name": "Shaykh Abu Rahimah Mikael Aykyuni",
+        "resource_id": 125
       }
     ]
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:the_open_quran/constants/audio_urls.dart';
 import 'package:the_open_quran/constants/constants.dart';
 
 import '../../providers/player_provider.dart';
@@ -39,30 +40,22 @@ class _ReciterExpansionTileState extends State<ReciterExpansionTile> {
             width: 20,
             color: const Color(0xFFB9B9B9),
           ),
+          
           title: Text(
             context.translate.reciter,
             style: context.theme.textTheme.titleLarge
                 ?.copyWith(color: const Color(0xFFB9B9B9)),
           ),
           maintainState: true,
-          children: <Widget>[
-            _popupMenuItem(
-              context: context,
-              itemTitle: "Mohmoud Al Husary",
-            ),
-            _popupMenuItem(
-              context: context,
-              itemTitle: "Mahir Al-Muaiqly",
-            ),
-            _popupMenuItem(
-              context: context,
-              itemTitle: "Suud eş-Şureym",
-            ),
-            _popupMenuItem(
-              context: context,
-              itemTitle: "Abdurrahman es-Sudais",
-            ),
-          ],
+          
+          children: AudioUrls()
+              .reciterBaseUrls
+              .keys
+              .map((name) => _popupMenuItem(
+                    context: context,
+                    itemTitle: name,
+                  ))
+              .toList(),
         ),
       ),
     );
@@ -74,7 +67,7 @@ class _ReciterExpansionTileState extends State<ReciterExpansionTile> {
   }) {
     return PopupMenuItem(
       height: 45,
-      padding: const EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 7, right: 7),
       child: StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
         var isActive =
@@ -89,24 +82,26 @@ class _ReciterExpansionTileState extends State<ReciterExpansionTile> {
                     borderRadius: BorderRadius.circular(10),
                   )
                 : null,
-            padding: const EdgeInsets.all(9),
+            padding: const EdgeInsets.all(5),
             child: Row(
-              children: [
-                isActive
-                    ? SvgPicture.asset(
-                        ImageConstants.okayBorderIcon,
-                        width: 20,
-                      )
-                    : const SizedBox(width: 20),
-                const SizedBox(width: 10),
-                Text(
-                  itemTitle,
-                  style: context.theme.textTheme.titleLarge?.copyWith(
-                    color: isActive ? null : const Color(0xFFB9B9B9),
+                children: [
+                  Expanded(
+                    child: Text(
+                      itemTitle,
+                      overflow: TextOverflow.ellipsis,
+                      style: context.theme.textTheme.titleLarge?.copyWith(
+                        color: isActive ? null : const Color(0xFFB9B9B9),
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
+                  isActive
+                      ? SvgPicture.asset(
+                          ImageConstants.okayBorderIcon,
+                          width: 15,
+                        )
+                      : const SizedBox(),
+                ],
+              )
           ),
         );
       }),

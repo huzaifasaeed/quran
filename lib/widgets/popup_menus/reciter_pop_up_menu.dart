@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:the_open_quran/constants/audio_urls.dart';
 import 'package:the_open_quran/constants/constants.dart';
 
 import '../../providers/player_provider.dart';
@@ -13,6 +14,7 @@ class ReciterPopUpMenu extends StatefulWidget {
 }
 
 class _ReciterPopUpMenuState extends State<ReciterPopUpMenu> {
+  
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
@@ -28,30 +30,13 @@ class _ReciterPopUpMenuState extends State<ReciterPopUpMenu> {
       ),
       offset: const Offset(50, -300),
       padding: EdgeInsets.zero,
-      itemBuilder: (context) {
-        return [
-          _popupMenuItem(
-            context: context,
-            itemTitle: "Mohmoud Al Husary",
-          ),
-          _popupMenuItem(
-            context: context,
-            itemTitle: "Mahir il-Muaykili",
-          ),
-          _popupMenuItem(
-            context: context,
-            itemTitle: "Suud eş-Şureym",
-          ),
-          _popupMenuItem(
-            context: context,
-            itemTitle: "Abdurrahman es-Sudais",
-          ),
-          _popupMenuItem(
-            context: context,
-            itemTitle: "Mahir Bin Hamad Al-Muaiqly",
+      itemBuilder: (context) =>AudioUrls().reciterBaseUrls.keys
+          .map((name) =>  _popupMenuItem(
+              context: context,
+              itemTitle: name,
+            ),
           )
-        ];
-      },
+          .toList(),
       child: Row(
         children: [
           SvgPicture.asset(

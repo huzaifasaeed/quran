@@ -1,8 +1,11 @@
 import 'package:audio_service/audio_service.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:the_open_quran/constants/audio_urls.dart';
+import 'package:the_open_quran/database/local_db.dart';
 
 import '../constants/enums.dart';
 import '../constants/restful.dart';
@@ -30,7 +33,7 @@ class PlayerProvider extends ChangeNotifier {
   String playerSpeedTitle = "Normal";
 
   /// Reciter Title
-  String reciterTitle = "Mohmoud Al Husary";
+  late String reciterTitle;
 
   /// EPlayerState [EPlayerState]
   EPlayerState playerState = EPlayerState.stop;
@@ -39,8 +42,19 @@ class PlayerProvider extends ChangeNotifier {
   bool isPlayedFromBackground = true;
 
   PlayerProvider() {
+    reciterTitle =
+        LocalDb.getReciter ?? AudioUrls().reciterBaseUrls.keys.first;
     player.playerStateStream.listen(checkIfCompleted);
   }
+
+  // final Map<String, String> reciterFolderMap = {
+  //   'Mohmoud Al Husary': 'Husary/mp3/',
+  //   'Mahir il-Muaykili': 'Maher_AlMuaiqly_64kbps/mp3/',
+  //   'Suud eş-Şureym': 'Shuraym/mp3/',
+  //   'Abdurrahman es-Sudais': 'Sudais/mp3/',
+  //   'Mahir Bin Hamad Al-Muaiqly': 'Maher_AlMuaiqly_128kbps/mp3/',
+  // };
+
 
   /// Listens the Player's Position
   Stream<PositionData> get positionDataStream => Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
@@ -60,8 +74,8 @@ class PlayerProvider extends ChangeNotifier {
     _audioHandler = await AudioService.init(
       builder: () => MyAudioHandler(_context),
       config: const AudioServiceConfig(
-        androidNotificationChannelId: 'com.open.quran',
-        androidNotificationChannelName: 'Fabrikod Quran',
+        androidNotificationChannelId: 'com.quran.holyquran.app',
+        androidNotificationChannelName: 'Al Quran',
       ),
     );
   }
@@ -91,7 +105,8 @@ class PlayerProvider extends ChangeNotifier {
   /// Change Reciter
   Future<void> setReciter(String value) async {
     reciterTitle = value;
-    if (value == "Mohmoud Al Husary") value = "Mohmoud Al Husary";
+    LocalDb.setReciter(reciterTitle);
+    // if (value == "Mohmoud Al Husary") value = "Mohmoud Al Husary";
     notifyListeners();
   }
 
@@ -136,14 +151,30 @@ class PlayerProvider extends ChangeNotifier {
 
   /// Play verse
   Future<void> play() async {
-    final audioUrl = verseListToPlay[playerIndex].audioUrl;
-    if (verseListToPlay.isEmpty || audioUrl == null) return;
-    await player.setUrl(RestfulConstants.getAudioUrlOfVerse(audioUrl));
+    if (verseListToPlay.isEmpty) return;
+
+    String? originalAudioUrl = verseListToPlay[playerIndex].audioUrl;
+    if (originalAudioUrl == null) return;
+
+    // Get the reciter folder for the selected reciter
+    final folder = AudioUrls().reciterBaseUrls[reciterTitle];
+    if (folder == null) return;
+
+    // Extract only the file name from the original audio URL
+    final fileName = originalAudioUrl.split('/').last;
+
+    // Build the new audio URL using the selected reciter
+    // final updatedAudioUrl = '$folder$fileName';
+
+    // await player.setUrl(RestfulConstants.getAudioUrlOfVerse(updatedAudioUrl));
+    final url = AudioUrls.getVerseUrl(folder, fileName);
+    await player.setUrl(url);
     player.play();
     playerState = EPlayerState.playing;
     playOnBackground();
     notifyListeners();
   }
+
 
   /// Pause verse
   void pause({bool isRunBackGround = true}) {

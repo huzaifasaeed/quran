@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:provider/provider.dart';
 import 'package:the_open_quran/constants/constants.dart';
+import 'package:the_open_quran/database/local_db.dart';
+import 'package:the_open_quran/providers/player_provider.dart';
 
+import '../../constants/audio_urls.dart';
 import '../title.dart';
 
 class SoundDropDown extends StatefulWidget {
@@ -12,19 +17,28 @@ class SoundDropDown extends StatefulWidget {
 }
 
 class _SoundDropDownState extends State<SoundDropDown> {
-  List<String> sounds = [
-    'Mohmoud Al Husary',
-    'Mahir il-Muaykili',
-    'Suud eş-Şureym',
-    'Abdurrahman es-Sudais',
-    'Mahir Bin Hamad Al-Muaiqly'
-  ];
-  String selectedSound = 'Mohmoud Al Husary';
+  late String selectedSound; 
+  
+
+
+  @override
+  void initState() {
+    super.initState();
+    // Load saved reciter name, fallback to the first reciter if none is saved
+    selectedSound =
+        LocalDb.getReciter ?? AudioUrls().reciterBaseUrls.keys.first;
+  }
+
   void dropdownCallback(String? selectedValue) {
     if (selectedValue is String) {
       setState(() {
         selectedSound = selectedValue;
       });
+
+      // 🔄 Update PlayerProvider immediately
+      final playerProvider =
+          Provider.of<PlayerProvider>(context, listen: false);
+      playerProvider.setReciter(selectedValue);
     }
   }
 
@@ -53,7 +67,8 @@ class _SoundDropDownState extends State<SoundDropDown> {
                 contentPadding: EdgeInsets.only(right: kSizeL, left: kSizeM),
               ),
               value: selectedSound,
-              items: sounds.map<DropdownMenuItem<String>>((String mascot) {
+              items: AudioUrls().reciterBaseUrls.keys
+                  .map<DropdownMenuItem<String>>((String mascot) {
                 return DropdownMenuItem<String>(
                     value: mascot, child: Text(mascot));
               }).toList(),

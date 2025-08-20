@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'dart:ui';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:the_open_quran/screens/settings_screen.dart';
 
@@ -30,6 +32,19 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   void initState() {
     super.initState();
     context.read<PlayerProvider>().createAudioHandler(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _requestNotificationPermission();
+    });
+  }
+
+  Future<void> _requestNotificationPermission() async {
+    try {
+      await OneSignal.Notifications.requestPermission(true);
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error requesting notification permission: $e');
+      }
+    }
   }
 
   /// Current index of bottom navigation bar

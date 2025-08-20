@@ -20,6 +20,7 @@ class Fonts {
   static const String noore = "Noore";
   static const String naskh = "Naskh";
   static const String quranFont = "Quran Font";
+  static const String indoPak = "IndoPak";
 
 
 
@@ -38,6 +39,7 @@ class Fonts {
   static const List<String> arabicFontNames = [
     "Uthmani",
     "Uthmanic Bold",
+    "IndoPak",
     "Majeed",
     "Me",
     "Jameel",
@@ -55,12 +57,14 @@ class Fonts {
   static String? getArabicFont(String fontName) {
     if (fontName == arabicFontNames[1]) return uthmanicBold;
     if (fontName == arabicFontNames[2]) return majeed;
-    if (fontName == arabicFontNames[3]) return me;
-    if (fontName == arabicFontNames[4]) return jameel;
-    if (fontName == arabicFontNames[5]) return kufamRegular;
-    if (fontName == arabicFontNames[6]) return noore;
-    if (fontName == arabicFontNames[7]) return naskh;
-    if (fontName == arabicFontNames[8]) return quranFont;
+    if (fontName == arabicFontNames[3]) return indoPak;
+    if (fontName == arabicFontNames[4]) return me;
+    if (fontName == arabicFontNames[5]) return jameel;
+    if (fontName == arabicFontNames[6]) return kufamRegular;
+    if (fontName == arabicFontNames[7]) return noore;
+    if (fontName == arabicFontNames[8]) return naskh;
+    if (fontName == arabicFontNames[9]) return quranFont;
+    
     return uthmanic;
   }
 }

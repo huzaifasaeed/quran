@@ -10,7 +10,7 @@ import '../models/verse_model.dart';
 class LocalDb {
   LocalDb._();
 
-  static final GetStorage _localDbBox = GetStorage('FabrikodQuran');
+  static final GetStorage _localDbBox = GetStorage('Al-Quran');
 
   /// Get locale from local database
   static Locale? get getLocale {
@@ -23,6 +23,19 @@ class LocalDb {
   static Future<Locale?> setLocale(String languageCode) async {
     await _localDbBox.write('languageCode', languageCode);
     return getLocale;
+  }
+
+    /// Get locale from local database
+  static String? get getReciter {
+    String? selectedReciter = _localDbBox.read('selectedReciter');
+    if (selectedReciter == null) return null;
+    return selectedReciter;
+  }
+
+  /// Change locale from local database
+  static Future<String?> setReciter(String selectedReciter) async {
+    await _localDbBox.write('selectedReciter', selectedReciter);
+    return selectedReciter;
   }
 
   /// Get theme mode from local database

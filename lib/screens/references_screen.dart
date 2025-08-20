@@ -45,7 +45,7 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(ImageConstants.appLogo),
+              Image.asset(ImageConstants.appLogo, width: 100,height: 100,),
               const SizedBox(
                 width: 30,
               ),
@@ -60,7 +60,7 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
                     height: 5,
                   ),
                   Text(
-                    "Version 1.0.0-alpha",
+                    "Version 1.0.3",
                     style: context.theme.textTheme.bodyMedium,
                   ),
                   const SizedBox(
@@ -84,20 +84,20 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
                   style: context.theme.textTheme.headlineMedium,
                   text: context.translate.referencesDescription,
                 ),
-                TextSpan(
-                  style: context.theme.textTheme.headlineMedium!
-                      .copyWith(color: AppColors.redOrange),
-                  text: "The Open Qur'an GitHub repo.",
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () async {
-                      const url = 'https://github.com/fabrikod/the-open-quran';
-                      if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(
-                          Uri.parse(url),
-                        );
-                      }
-                    },
-                ),
+                // TextSpan(
+                //   style: context.theme.textTheme.headlineMedium!
+                //       .copyWith(color: AppColors.redOrange),
+                //   text: "The Open Qur'an GitHub repo.",
+                //   recognizer: TapGestureRecognizer()
+                //     ..onTap = () async {
+                //       const url = 'https://github.com/fabrikod/the-open-quran';
+                //       if (await canLaunchUrl(Uri.parse(url))) {
+                //         await launchUrl(
+                //           Uri.parse(url),
+                //         );
+                //       }
+                //     },
+                // ),
                 TextSpan(
                   text: context.translate.referencesDescription2,
                   style: context.theme.textTheme.headlineMedium,
@@ -112,7 +112,7 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
                   text: " Quran.com api V4",
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
-                      const url = 'https://quran.api-docs.io/';
+                      const url = 'https://api-docs.quran.com/docs/category/content-apis';
                       if (await canLaunchUrl(Uri.parse(url))) {
                         await launchUrl(
                           Uri.parse(url),
@@ -124,15 +124,15 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
                     text: "\n \n${context.translate.contactUs}",
                     style: context.theme.textTheme.headlineMedium),
                 TextSpan(
-                    text: "\n \n${context.translate.privacyPolicy}",
+                    text: "\n \n${context.translate.privacyPolicy}:",
                     style: context.theme.textTheme.headlineMedium),
                 TextSpan(
                   style: context.theme.textTheme.headlineMedium!
                       .copyWith(color: AppColors.redOrange),
-                  text: " :  www.fabrikod.com/open-quran-privacy-policy",
+                  text: " sites.google.com/view/al-quran-privacypolicy",
                   recognizer: TapGestureRecognizer()
                     ..onTap = () async {
-                      const url = 'https://www.fabrikod.com/open-quran-privacy-policy';
+                      const url = 'https://sites.google.com/view/al-quran-privacypolicy';
                       if (await canLaunchUrl(Uri.parse(url))) {
                         await launchUrl(
                           Uri.parse(url),

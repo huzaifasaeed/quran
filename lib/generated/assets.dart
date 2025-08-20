@@ -16,6 +16,7 @@ class Assets {
   static const String fontsUthmanicHafsV20 = 'assets/fonts/UthmanicHafs_V20.ttf';
   static const String fontsUthmanicRegular = 'assets/fonts/UthmanicRegular.ttf';
   static const String fontsUthmanicRegular2 = 'assets/fonts/UthmanicRegular2.ttf';
+  static const String fontsIndoPak = 'assets/fonts/IndoPak.ttf';
   static const String iconsIcAlignJustify = 'assets/icons/ic_align_justify.svg';
   static const String iconsIcAlignRight = 'assets/icons/ic_align_right.svg';
   static const String iconsIcArrowBack = 'assets/icons/ic_arrow_back.svg';

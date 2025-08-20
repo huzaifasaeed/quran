@@ -125,7 +125,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               text: context.translate.privacyPolicy,
               // Navigate to privacy policy url
               onPressed: () async {
-                const url = 'https://www.fabrikod.com/open-quran-privacy-policy';
+                const url = 'https://sites.google.com/view/al-quran-privacypolicy';
                 if (await canLaunchUrl(Uri.parse(url))) {
                   await launchUrl(
                     Uri.parse(url),
@@ -170,7 +170,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: Text(
-              "${context.translate.openSourceDevelopedByFabrikod} ${context.translate.version} ${snapshot.data?.version ?? ""}",
+              "${context.translate.madeByFabrikod} ${context.translate.version} ${snapshot.data?.version ?? ""}",
               style: context.theme.textTheme.headlineSmall,
             ),
           ),
