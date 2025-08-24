@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/colors.dart';
 import '../constants/enums.dart';
@@ -11,6 +13,8 @@ import '../models/translation.dart';
 import '../models/verse_model.dart';
 import '../services/asset_quran_service.dart';
 import '../services/translation_service.dart';
+import '../utils/locale_utils.dart';
+import 'app_settings_provider.dart';
 
 class QuranProvider extends ChangeNotifier {
   /// Class Constructor
@@ -37,6 +41,7 @@ class QuranProvider extends ChangeNotifier {
 
   /// Local Setting of Quran
   LocalSettingModel localSetting = LocalSettingModel();
+  bool _isLocalSettingsInitialized = false;
 
   /// Get surah which has sajda verses
   List<SurahModel> get sajdaSurahs {
@@ -109,8 +114,17 @@ class QuranProvider extends ChangeNotifier {
   }
 
   /// Getting Local Setting Of quran From DB
-  void getLocalSettingOfQuran() {
+  Future<void> getLocalSettingOfQuran() async {
+    if (_isLocalSettingsInitialized) return;
+    _isLocalSettingsInitialized = true;
+
     localSetting = LocalDb.getLocalSettingOfQuran;
+    if (localSetting.fontTypeArabic == "Uthmani") {
+      var font =
+          await LocaleUtils.getDefaultArabicFontForLocale();
+       localSetting.fontTypeArabic=font;
+      await setLocalSettingOfQuran();
+    }
     notifyListeners();
   }
 

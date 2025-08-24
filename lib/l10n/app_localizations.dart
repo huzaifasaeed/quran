@@ -702,11 +702,11 @@ abstract class AppLocalizations {
   /// **'Previous Surah'**
   String get previousSurah;
 
-  /// No description provided for @beggingOfSurah.
+  /// No description provided for @beginningOfSurah.
   ///
   /// In en, this message translates to:
-  /// **'Begging Of Surah'**
-  String get beggingOfSurah;
+  /// **'Beginning Of Surah'**
+  String get beginningOfSurah;
 
   /// No description provided for @openSourceDevelopedByFabrikod.
   ///

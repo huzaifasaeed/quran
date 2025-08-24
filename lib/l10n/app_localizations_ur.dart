@@ -48,13 +48,13 @@ class AppLocalizationsUr extends AppLocalizations {
   String get introduction => 'تعارف';
 
   @override
-  String get shareApp => 'ایپ شیئر کریں۔';
+  String get shareApp => 'ایپ شیئر کریں';
 
   @override
   String get references => 'حوالہ جات';
 
   @override
-  String get switchTheme => 'ڈیزائن تبدیل کریں۔';
+  String get switchTheme => 'ڈیزائن تبدیل کریں';
 
   @override
   String get lightMode => 'سفید کریں';
@@ -63,7 +63,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get darkMode => 'سیاہ کریں';
 
   @override
-  String get quranMode => 'قرآن';
+  String get quranMode => 'قرآن موڈ';
 
   @override
   String get greenMode => 'سبز کریں';
@@ -78,16 +78,16 @@ class AppLocalizationsUr extends AppLocalizations {
   String get reading => 'پڑھیں';
 
   @override
-  String get searchSurah => 'سورة تلاش کریں۔';
+  String get searchSurah => 'سورة تلاش کریں';
 
   @override
-  String get madeByFabrikod => 'made by fabrikod';
+  String get madeByFabrikod => 'تیار کردہ حذیفہ سعید';
 
   @override
-  String get version => ' - V';
+  String get version => ' - ورژن';
 
   @override
-  String get copy => 'کاپی';
+  String get copy => 'کاپی کریں';
 
   @override
   String get copied => 'کاپی ہو گئی';
@@ -114,217 +114,216 @@ class AppLocalizationsUr extends AppLocalizations {
   String get arabic => 'عربی';
 
   @override
-  String get fontType => 'Font Type';
+  String get fontType => 'فونٹ کی قسم';
 
   @override
-  String get helpGuideTitle1 => 'What is Qur\'an Kareem';
+  String get helpGuideTitle1 => 'قرآن کریم کیا ہے؟';
 
   @override
   String get helpGuideDescription1 =>
-      'The Holy Quran is the religious text of Islam, believed by Muslims to be the word of God as revealed to Prophet Muhammad through the angel Gabriel. It contains guidance and teachings on various aspects of life, including faith, morality, spirituality, and daily living.';
+      'قرآن مجید اسلام کی مقدس کتاب ہے جسے مسلمان اللہ کا کلام مانتے ہیں جو فرشتہ جبرائیل کے ذریعے نبی کریم محمد ﷺ پر نازل ہوا۔ اس میں ایمان، اخلاق، روحانیت اور روزمرہ زندگی کے بارے میں رہنمائی موجود ہے۔';
 
   @override
-  String get helpGuideTitle2 =>
-      'How many chapters does the Qur’an Kareem include?';
+  String get helpGuideTitle2 => 'قرآن کریم میں کتنے ابواب ہیں؟';
 
   @override
-  String get helpGuideDescription2 => '114 chapters';
+  String get helpGuideDescription2 => 'کل 114 سورتیں ہیں';
 
   @override
-  String get helpGuideTitle3 => 'Can I read separately versicles and chapters?';
+  String get helpGuideTitle3 => 'کیا میں آیات اور سورتیں الگ الگ پڑھ سکتا ہوں؟';
 
   @override
   String get helpGuideDescription3 =>
-      'Yes you can. You can jump from one page to another in the way you prefer. You can also mark them so you can directly read them without searching them in the whole book.';
+      'جی ہاں، آپ اپنی مرضی سے کسی بھی صفحہ پر جا سکتے ہیں۔ آپ انہیں نشان زد بھی کر سکتے ہیں تاکہ اگلی بار تلاش کے بغیر براہِ راست پڑھ سکیں۔';
 
   @override
-  String get helpGuideTitle4 => 'Can I share the content in other places?';
+  String get helpGuideTitle4 =>
+      'کیا میں مواد کو دوسرے مقامات پر شیئر کر سکتا ہوں؟';
 
   @override
   String get helpGuideDescription4 =>
-      'Yes you can, Open Quran is an open source app where you are free to use the content.';
+      'جی ہاں، اوپن قرآن ایک اوپن سورس ایپ ہے جس کے مواد کو آزادانہ استعمال کیا جا سکتا ہے۔';
 
   @override
-  String get helpGuideTitle5 => 'What is the purpose of the app?';
+  String get helpGuideTitle5 => 'ایپ کا مقصد کیا ہے؟';
 
   @override
   String get helpGuideDescription5 =>
-      'The main purpose of the app is to offer to the community a native open source mobile app where they can read, listen and save their surahs, ayas or juzs.';
+      'ایپ کا بنیادی مقصد کمیونٹی کو ایک اوپن سورس موبائل ایپ فراہم کرنا ہے جس میں وہ قرآن پڑھ سکیں، سن سکیں اور سورتیں، آیات یا پارے محفوظ کر سکیں۔';
 
   @override
-  String get helpGuideTitle6 => 'What are the key features of the app?';
+  String get helpGuideTitle6 => 'ایپ کی اہم خصوصیات کیا ہیں؟';
 
   @override
   String get helpGuideDescription6 =>
-      'You can read with no limit the Holy Qur’an, you mark with the bookmarks the last aya you read so you won’t get lost next time you open your Qur’an. You can listen the ayas in case you don’t know how to read it in Arabic and also you can save your most read surahs, ayas or juzs.';
+      'آپ بغیر کسی حد کے قرآن پڑھ سکتے ہیں۔ آپ آخری پڑھی گئی آیت کو نشانی کے ساتھ محفوظ کر سکتے ہیں تاکہ دوبارہ کھولنے پر آسانی ہو۔ اگر آپ عربی پڑھنا نہیں جانتے تو آپ آیات کو سن بھی سکتے ہیں اور اپنی پسندیدہ سورتیں یا پارے محفوظ بھی کر سکتے ہیں۔';
 
   @override
-  String get helpGuideTitle7 =>
-      'How can users troubleshoot problems and find solutions? ';
+  String get helpGuideTitle7 => 'یوزرز مسائل کیسے حل کر سکتے ہیں؟';
 
   @override
   String get helpGuideDescription7 =>
-      'You can always contact us via email: merhaba@fabrikod.com';
+      'آپ ہمیشہ ہم سے ای میل کے ذریعے رابطہ کر سکتے ہیں: huzaifasaeed00@gmail.com';
 
   @override
-  String get helpGuideTitle8 =>
-      'Are there any known limitations or restrictions in the app?';
+  String get helpGuideTitle8 => 'کیا ایپ میں کوئی پابندیاں یا محدودیت ہیں؟';
 
   @override
   String get helpGuideDescription8 =>
-      'No there is not, you can read and listen as much as you want.';
+      'نہیں، آپ جتنا چاہیں پڑھ اور سن سکتے ہیں۔';
 
   @override
-  String get helpGuideTitle9 => 'Who is the target audience for the app?';
+  String get helpGuideTitle9 => 'ایپ کا ہدف سامعین کون ہیں؟';
 
   @override
   String get helpGuideDescription9 =>
-      'Everyone who has an interest in getting to know the Holy Qur’an, reading or listen to it. Everyone is welcome.';
+      'ہر وہ شخص جو قرآن مجید کو پڑھنے، سننے یا سمجھنے میں دلچسپی رکھتا ہے۔ سب کا خیرمقدم ہے۔';
 
   @override
-  String get nextPage => 'Next Page';
+  String get nextPage => 'اگلا صفحہ';
 
   @override
   String get page => 'صفحہ';
 
   @override
-  String get previousPage => 'Previous Page';
+  String get previousPage => 'پچھلا صفحہ';
 
   @override
-  String get surahs => 'Surahs';
+  String get surahs => 'سورتیں';
 
   @override
   String get noResultsFound =>
-      'No results found\nTry searching for a different keyword';
+      'کوئی نتیجہ نہیں ملا\nبراہ کرم دوسرا لفظ تلاش کریں';
 
   @override
-  String get suggestions => 'Suggestions';
+  String get suggestions => 'تجاویز';
 
   @override
-  String get noBookMarksAdded => 'No Bookmarks Added';
+  String get noBookMarksAdded => 'کوئی نشانی شامل نہیں کی گئی';
 
   @override
-  String get noFavoritesAdded => 'No Favorites Added';
+  String get noFavoritesAdded => 'کوئی پسندیدہ شامل نہیں کیا گیا';
 
   @override
-  String get and => 'And';
+  String get and => 'اور';
 
   @override
-  String get theOpenQuran => 'The Open Quran';
+  String get theOpenQuran => 'دی اوپن قرآن';
 
   @override
-  String get bookmarks => 'Bookmarks';
+  String get bookmarks => 'نشانیاں';
 
   @override
-  String get recent => 'Recent';
+  String get recent => 'حالیہ';
 
   @override
-  String get read => 'Read';
+  String get read => 'پڑھیں';
 
   @override
-  String get fontSize => 'Font Size';
+  String get fontSize => 'فونٹ سائز';
 
   @override
-  String get layout => 'Layout';
+  String get layout => 'لے آؤٹ';
 
   @override
-  String get sound => 'Sound';
+  String get sound => 'آواز';
 
   @override
-  String get backgroundColor => 'Background Color';
+  String get backgroundColor => 'پس منظر کا رنگ';
 
   @override
-  String get ayatAndTranslation => 'Ayat + Translation';
+  String get ayatAndTranslation => 'آیت + ترجمہ';
 
   @override
-  String get hide => 'Hide';
+  String get hide => 'چھپائیں';
 
   @override
-  String get show => 'Show';
+  String get show => 'دکھائیں';
 
   @override
-  String get settings => 'Settings';
+  String get settings => 'ترتیبات';
 
   @override
-  String get rate => 'Rate';
+  String get rate => 'ریویو دیں';
 
   @override
-  String get writeAnAppStoreReview => 'Write an app store review';
+  String get writeAnAppStoreReview => 'ایپ اسٹور میں ریویو لکھیں';
 
   @override
-  String get play => 'Play';
+  String get play => 'چلائیں';
 
   @override
-  String get pause => 'Pause';
+  String get pause => 'روکیں';
 
   @override
-  String get favorite => 'Favorite';
+  String get favorite => 'پسندیدہ';
 
   @override
-  String get meaning => 'Meaning';
+  String get meaning => 'معنی';
 
   @override
-  String get navigation => 'Navigations';
+  String get navigation => 'نیویگیشن';
 
   @override
-  String get searchSurahJuzOrAyahs => 'Search surah, juz or ayahs...';
+  String get searchSurahJuzOrAyahs => 'سورة، پارہ یا آیت تلاش کریں...';
 
   @override
-  String get searchSurahJuzOrPage => 'Search for surah, juz or page...';
+  String get searchSurahJuzOrPage => 'سورة، پارہ یا صفحہ تلاش کریں...';
 
   @override
-  String get searchFor => 'Search for';
+  String get searchFor => 'تلاش کریں';
 
   @override
-  String get reciter => 'Reciter';
+  String get reciter => 'قاری';
 
   @override
-  String get download => 'Download';
+  String get download => 'ڈاؤن لوڈ';
 
   @override
-  String get speed => 'Speed';
+  String get speed => 'رفتار';
 
   @override
-  String get downloaded => 'Downloaded';
+  String get downloaded => 'ڈاؤن لوڈ ہو گیا';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'حذف کریں';
 
   @override
-  String get quranFont => 'Qur\'an Font';
+  String get quranFont => 'قرآن فونٹ';
 
   @override
-  String get availableToDownload => 'Available to Download';
+  String get availableToDownload => 'ڈاؤن لوڈ کے لئے دستیاب';
 
   @override
-  String get fabrikodTwoThree => '@2023 Fabrikod';
+  String get fabrikodTwoThree => '@2025 حذیفہ سعید';
 
   @override
   String get referencesDescription =>
-      'The goal of the project is to provide people with a convenient platform for studying the Holy Qur\'an. Therefore, the Qur\'an can now be read on smartphones, tablets and other modern devices. To see the source code for this app, please visit the ';
+      'پروجیکٹ کا مقصد لوگوں کو قرآن مجید پڑھنے کے لئے ایک آسان پلیٹ فارم فراہم کرنا ہے۔ اب قرآن اسمارٹ فونز، ٹیبلٹس اور دیگر جدید ڈیوائسز پر پڑھا جا سکتا ہے۔';
 
   @override
   String get referencesDescription2 =>
-      ' As explained in our Privacy Policy we do not collect any personal information.';
+      'جیسا کہ ہماری پرائیویسی پالیسی میں وضاحت کی گئی ہے، ہم کوئی ذاتی معلومات اکٹھی نہیں کرتے۔';
 
   @override
   String get referencesDescription3 =>
-      'The API and all Qur\'an sources are used from ';
+      'قرآن کا API اور تمام ذرائع حاصل کیے گئے ہیں ';
 
   @override
-  String get contactUs => 'Contact us at merhaba@fabrikod.com for assistance.';
+  String get contactUs =>
+      'مدد کے لیے ہم سے رابطہ کریں: huzaifasaeed00@gmail.com';
 
   @override
-  String get privacyPolicy => 'Privacy policy';
+  String get privacyPolicy => 'پرائیویسی پالیسی';
 
   @override
-  String get nextSurah => 'Next Surah';
+  String get nextSurah => 'اگلی سورة';
 
   @override
-  String get previousSurah => 'Previous Surah';
+  String get previousSurah => 'پچھلی سورة';
 
   @override
-  String get beggingOfSurah => 'Begging Of Surah';
+  String get beginningOfSurah => 'سورة کا آغاز';
 
   @override
   String get openSourceDevelopedByFabrikod =>

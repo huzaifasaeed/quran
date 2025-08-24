@@ -323,7 +323,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get previousSurah => 'Önceki Sure';
 
   @override
-  String get beggingOfSurah => 'Sure Başlangıcı';
+  String get beginningOfSurah => 'Sure Başlangıcı';
 
   @override
   String get openSourceDevelopedByFabrikod =>

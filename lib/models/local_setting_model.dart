@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+
 import '../constants/enums.dart';
+import '../utils/locale_utils.dart';
 
 class LocalSettingModel {
   EQuranType quranType;
@@ -7,7 +10,7 @@ class LocalSettingModel {
   double textScaleFactor;
   int surahDetailsPageThemeIndex;
   String fontType = "Nunito";
-  String fontTypeArabic = "Uthmani";
+  String fontTypeArabic;
 
   LocalSettingModel({
     this.quranType = EQuranType.translation,

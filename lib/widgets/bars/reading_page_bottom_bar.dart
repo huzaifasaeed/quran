@@ -35,11 +35,11 @@ class ReadingPageBottomBar extends StatelessWidget {
                   : const BoxDecoration()),
           buildBottomBarButtons(
               Text(
-                context.translate.beggingOfSurah,
+                context.translate.beginningOfSurah,
                 textAlign: TextAlign.center,
                 style: context.theme.textTheme.bodySmall,
               ),
-              context.read<SurahDetailsProvider>().beggingOfSurahButtonOnTap,
+              context.read<SurahDetailsProvider>().beginningOfSurahButtonOnTap,
               BoxDecoration(
                   color: AppColors.black3,
                   borderRadius: BorderRadius.circular(10))),

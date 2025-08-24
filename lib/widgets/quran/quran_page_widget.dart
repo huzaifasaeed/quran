@@ -137,7 +137,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                             context
                                 .read<PlayerProvider>()
                                 .isPlayingVerse(verse.verseKey ?? ""))
-                        ? Color(0xFFa3c8f1).withOpacity(0.5)
+                        ? AppColors.brandy.withOpacity(0.3)
                         : Colors.transparent),
             recognizer: LongPressGestureRecognizer()
               ..onLongPress = () async {
@@ -160,26 +160,27 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                       MediaQuery.of(context).size.width / 2,
                       MediaQuery.of(context).size.height / 2),
                   items: [
-                    PopupMenuItem(
-                      onTap: () => context
-                          .read<SurahDetailsProvider>()
-                          .onTapVerseCardPlayOrPause(
-                            verse.verseNumber! - 1,
-                            false,
-                          ),
-                      child: VerseMenuItem(
-                        iconPath: context
-                                .read<PlayerProvider>()
-                                .isPlayingVerse(verse.verseKey ?? "")
-                            ? ImageConstants.pauseIcon
-                            : ImageConstants.play,
-                        buttonName: context
-                                .read<PlayerProvider>()
-                                .isPlayingVerse(verse.verseKey ?? "")
-                            ? context.translate.pause
-                            : context.translate.play,
-                      ),
-                    ),
+                    // PopupMenuItem(
+                    //   onTap: () => context
+                    //       .read<SurahDetailsProvider>()
+                    //       .onTapVerseCardPlayOrPause(
+                    //         verse.verseNumber! - 1,
+                    //         false,
+                    //       ),
+                    //   child: VerseMenuItem(
+                    //     iconPath: context
+                    //             .read<PlayerProvider>()
+                    //             .isPlayingVerse(verse.verseKey ?? "")
+                    //         ? ImageConstants.pauseIcon
+                    //         : ImageConstants.play,
+                    //     buttonName: context
+                    //             .read<PlayerProvider>()
+                    //             .isPlayingVerse(verse.verseKey ?? "")
+                    //         ? context.translate.pause
+                    //         : context.translate.play,
+                    //   ),
+                    // ),
+
                      PopupMenuItem(
                       onTap: () => context
                           .read<SurahDetailsProvider>()
@@ -200,6 +201,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                             : context.translate.play,
                       ),
                     ),
+                    
                     // PopupMenuItem(
                     //   onTap: () => favoriteFunction(verseModel, isFavorite),
                     //   child: VerseMenuItem(
@@ -284,10 +286,11 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
               backgroundColor:
                   context.read<SurahDetailsProvider>().selectedVerseKey ==
                           verse.verseKey!
-                      ? Color(0xFFa3c8f1).withOpacity(0.5)
+                      ? AppColors.brandy.withOpacity(0.3)
                       : Colors.transparent,
-              fontSize: 18,
-              height: 0,
+              fontSize: 16,
+              letterSpacing: -2.5,
+              height: 1.2,
               color: context
                   .watch<QuranProvider>()
                   .surahDetailsPageThemeColor
@@ -306,26 +309,53 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
     ELayoutOptions layoutOptions,
     String fontTypeArabic,
   ) {
+    
     List<TextSpan> textSpans = createTextSpans(context, verses);
 
     return RichText(
-
-      text: TextSpan(
-          style: context.theme.textTheme.headlineLarge?.copyWith(
-              height: 2.4,
-              fontFamily: Fonts.getArabicFont(fontTypeArabic),
-              color: context
-                  .watch<QuranProvider>()
-                  .surahDetailsPageThemeColor
-                  .textColor),
-          children: textSpans),
       textDirection: TextDirection.rtl,
       textAlign: layoutOptions == ELayoutOptions.justify
           ? TextAlign.justify
           : TextAlign.right,
       textScaleFactor: textScaleFactor,
+      text: TextSpan(
+        style: context.theme.textTheme.headlineLarge?.copyWith(
+            height: 1.7,
+            fontSize: 20,
+            fontFamily: Fonts.getArabicFont(fontTypeArabic),
+            color: context
+                .watch<QuranProvider>()
+                .surahDetailsPageThemeColor
+                .textColor),
+        children: textSpans
+        // verses
+        //     .map(
+        //       (e) => TextSpan(
+        //         children: [
+        //           TextSpan(
+        //               text: e.text! /*DartArabic.normalizeAlef(e.text!)*/,
+        //               style: TextStyle(letterSpacing: -0.7)),
+        //           TextSpan(
+        //             text: Utils.getArabicVerseNo(e.verseNumber.toString()),
+        //             style: context.theme.textTheme.headlineLarge?.copyWith(
+        //               fontFamily: Fonts.uthmanicIcon,
+        //               fontSize: 16,
+        //               letterSpacing: -2.5,
+        //               height: 1.2,
+        //               color: context
+        //                   .watch<QuranProvider>()
+        //                   .surahDetailsPageThemeColor
+        //                   .textColor,
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //     )
+        //     .toList(),
+      ),
     );
   }
+
 
   Widget buildBottomBorder(BuildContext context, VerseModel verse) {
     return Container(

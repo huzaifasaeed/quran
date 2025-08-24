@@ -19,7 +19,6 @@ import 'main_builder.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: const FirebaseOptions(
@@ -39,12 +38,22 @@ Future<void> main() async {
   //debugRepaintRainbowEnabled = false;
   // Pass all uncaught errors from the framework to Crashlytics.
   // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  
-  runApp(const MyApp());
+
+  final box = GetStorage('Al-Quran');
+  bool isFirstLaunch = box.read('isFirstLaunch') ?? true;
+
+  final quranProvider = QuranProvider();
+  if (isFirstLaunch) {
+    await quranProvider.getLocalSettingOfQuran();
+    await box.write('isFirstLaunch', false);
+  }
+
+  runApp(MyApp(quranProvider: quranProvider));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.quranProvider}) : super(key: key);
+  final QuranProvider quranProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +82,7 @@ class MyApp extends StatelessWidget {
   List<SingleChildWidget> get providers {
     return [
       ChangeNotifierProvider(create: (_) => AppSettingsProvider()),
-      ChangeNotifierProvider(create: (_) => QuranProvider(), lazy: false),
+      ChangeNotifierProvider.value(value: quranProvider),
       ChangeNotifierProvider(create: (_) => PlayerProvider()),
       ChangeNotifierProvider(create: (_) => FavoritesProvider()),
       ChangeNotifierProvider(create: (_) => BookmarkProvider()),

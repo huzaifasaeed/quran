@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:the_open_quran/constants/constants.dart';
 import 'package:the_open_quran/screens/references_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -97,17 +98,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
           //     color: AppColors.white,
           //   ),
           // ),
-          // SecondaryButton(
-          //   text: context.translate.shareApp,
-          //   onPressed: () async {
-          //     const appUrl = 'the store link of app will be here';
-          //     await Share.share('Download Quran App \n\n $appUrl');
-          //   },
-          //   icon: SvgPicture.asset(
-          //     ImageConstants.shareAppIcon,
-          //     color: AppColors.white,
-          //   ),
-          // ),
+          SecondaryButton(
+            text: context.translate.shareApp,
+            onPressed: () async {
+              const appUrl = 'https://play.google.com/store/apps/details?id=com.quran.holyquran.app';
+              await Share.share('✨ Introducing 📖 Al-Quran App\n \n🎧 50+ World-Famous Reciters \n🌍 70+ Translations \n🖋 10+ Elegant Quranic Fonts \n\n📲 Download Now: \n$appUrl');
+            },
+            icon: SvgPicture.asset(
+              ImageConstants.shareAppIcon,
+              color: AppColors.white,
+            ),
+          ),
           SecondaryButton(
               text: context.translate.references,
               onPressed: () {

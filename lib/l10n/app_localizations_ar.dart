@@ -322,7 +322,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get previousSurah => 'السورة السابقة';
 
   @override
-  String get beggingOfSurah => 'بداية السورة';
+  String get beginningOfSurah => 'بداية السورة';
 
   @override
   String get openSourceDevelopedByFabrikod =>

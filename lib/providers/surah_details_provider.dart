@@ -372,7 +372,7 @@ class SurahDetailsProvider extends ChangeNotifier {
   }
 
   /// Bottom bar up arrow function
-  void beggingOfSurahButtonOnTap() {
+  void beginningOfSurahButtonOnTap() {
     Navigator.pop(_context);
     SurahDetailNavigationManager.goToSurah(_context, readingSettings.surahId);
     notifyListeners();
