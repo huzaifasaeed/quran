@@ -110,7 +110,7 @@ class VersePopUpMenu extends StatelessWidget {
               ),
             ),
             PopupMenuItem(
-              onTap: repeatSurahFunction(verseModel, isPlaying),
+              onTap: () => repeatSurahFunction(verseModel, isPlaying),
               child: VerseMenuItem(
                 iconPath: ImageConstants.repeatIcon,
                 buttonName: context.translate.repeatSurah,
