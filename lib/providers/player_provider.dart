@@ -3,9 +3,11 @@ import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:the_open_quran/constants/audio_urls.dart';
 import 'package:the_open_quran/database/local_db.dart';
+import 'package:the_open_quran/providers/quran_provider.dart';
 
 import '../constants/enums.dart';
 import '../constants/restful.dart';
@@ -41,10 +43,21 @@ class PlayerProvider extends ChangeNotifier {
   /// Are there any processes in the background?
   bool isPlayedFromBackground = true;
 
+  /// Is player repeat
+  RepeatState repeatState = RepeatState.none;
+
+  /// Repeat count
+  int repeatCount = 1;
+
   PlayerProvider() {
     reciterTitle =
         LocalDb.getReciter ?? AudioUrls().reciterBaseUrls.keys.first;
     player.playerStateStream.listen(checkIfCompleted);
+    player.currentIndexStream.listen((event) {
+      if (verseListToPlay.isEmpty) return;
+      playerIndex = event ?? 0;
+      notifyListeners();
+    });
   }
 
   // final Map<String, String> reciterFolderMap = {
@@ -83,14 +96,18 @@ class PlayerProvider extends ChangeNotifier {
 
   /// Checking player for the next ayat audio
   /// if there is no ayat stop player if there are ayats play
-  void checkIfCompleted(event) {
+  void checkIfCompleted(PlayerState event) {
     if (event.processingState == ProcessingState.completed) {
-      if (verseListToPlay.isEmpty) return;
-      if (playerIndex == verseListToPlay.length - 1) {
-        stop();
-      } else {
-        playerIndex++;
-        play();
+      if (repeatState == RepeatState.verse) {
+        if (repeatCount > 0) {
+          repeatCount--;
+          player.seek(Duration.zero);
+          player.play();
+        } else {
+          repeatState = RepeatState.none;
+          player.setLoopMode(LoopMode.off);
+          stop();
+        }
       }
     }
   }
@@ -147,31 +164,64 @@ class PlayerProvider extends ChangeNotifier {
 
   /// OnTap to play or pause
   void onTapPlayOrPause(int index, bool isPlaying, List<VerseModel> verses) {
+    repeatState = RepeatState.none;
     verseListToPlay = verses;
     playerIndex = index;
     isPlaying ? pause() : play();
   }
 
+  /// On Tap Repeat Button
+  void onTapRepeat(int index, List<VerseModel> verses) {
+    if (player.playing && repeatState == RepeatState.verse) {
+      repeatState = RepeatState.none;
+      player.setLoopMode(LoopMode.off);
+      repeatCount = 1;
+      return;
+    }
+    verseListToPlay = [verses[index]];
+    playerIndex = 0;
+    repeatState = RepeatState.verse;
+    repeatCount = 10; // Set initial repeat count
+    play();
+  }
+
+  void playSurah(BuildContext context, int? surahId) {
+    if (surahId == null) return;
+    if (player.playing && repeatState == RepeatState.surah) {
+      repeatState = RepeatState.none;
+      player.setLoopMode(LoopMode.off);
+      return;
+    }
+    verseListToPlay =
+        context.read<QuranProvider>().surahs[surahId - 1].verses;
+    playerIndex = 0;
+    repeatState = RepeatState.surah;
+    play();
+  }
+
   /// Play verse
   Future<void> play() async {
     if (verseListToPlay.isEmpty) return;
-
-    String? originalAudioUrl = verseListToPlay[playerIndex].audioUrl;
-    if (originalAudioUrl == null) return;
-
-    // Get the reciter folder for the selected reciter
     final folder = AudioUrls().reciterBaseUrls[reciterTitle];
     if (folder == null) return;
 
-    // Extract only the file name from the original audio URL
-    final fileName = originalAudioUrl.split('/').last;
-
-    // Build the new audio URL using the selected reciter
-    // final updatedAudioUrl = '$folder$fileName';
-
-    // await player.setUrl(RestfulConstants.getAudioUrlOfVerse(updatedAudioUrl));
-    final url = AudioUrls.getVerseUrl(folder, fileName);
-    await player.setUrl(url);
+    final playlist = ConcatenatingAudioSource(
+      useLazyPreparation: true,
+      shuffleOrder: DefaultShuffleOrder(),
+      children: verseListToPlay
+          .map((verse) => AudioSource.uri(Uri.parse(
+              AudioUrls.getVerseUrl(folder, verse.audioUrl!.split('/').last))))
+          .toList(),
+    );
+    await player.setAudioSource(playlist,
+        initialIndex: playerIndex, initialPosition: Duration.zero);
+    if (repeatState == RepeatState.surah) {
+      player.setLoopMode(LoopMode.all);
+    } else if (repeatState == RepeatState.verse) {
+      player.setLoopMode(LoopMode.one);
+    } else {
+      player.setLoopMode(LoopMode.off);
+    }
     player.play();
     playerState = EPlayerState.playing;
     playOnBackground();
@@ -197,8 +247,10 @@ class PlayerProvider extends ChangeNotifier {
 
   /// Stop verse
   void stop({bool isRunBackGround = true}) {
+    repeatState = RepeatState.none;
     verseListToPlay = [];
     player.stop();
+    player.setLoopMode(LoopMode.off);
     playerState = EPlayerState.stop;
     if (isRunBackGround) stopOnBackground();
     notifyListeners();
@@ -225,3 +277,4 @@ class PlayerProvider extends ChangeNotifier {
     isPlayedFromBackground = true;
   }
 }
+

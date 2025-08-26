@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:the_open_quran/constants/constants.dart';
+import 'package:the_open_quran/database/local_db.dart';
 
 import '../constants/images.dart';
 import '../constants/padding.dart';
@@ -63,9 +66,15 @@ class BasmalaTitle extends StatelessWidget {
 
   /// Returning surah name
   String surahName(BuildContext context) {
+    String localCountryCode =
+        LocalDb.getLocale?.languageCode ?? Platform.localeName.split("_").first;
     var list = verseKey.split(':');
     int index = int.parse(list.first);
-    return context.read<QuranProvider>().surahs[index - 1].nameSimple ?? "";
+    return  localCountryCode == "ur" || localCountryCode == "ar"
+        ? context
+            .read<QuranProvider>()
+            .surahs[index - 1].nameArabic!
+        : context.read<QuranProvider>().surahs[index - 1].nameSimple ?? "";
   }
 
   /// İs Title Visible

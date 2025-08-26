@@ -20,41 +20,49 @@ class _CustomLanguageCardState extends State<CustomLanguageCard> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        ...ESupportedLanguage.values.map(
-          (e) => InkWell(
-            onTap: () => widget.changedLocale(e.name.toLowerCase()),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.05,
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    e.title(context),
-                    style: context.theme.textTheme.titleLarge
-                        ?.copyWith(color: AppColors.grey),
+        
+        ...ESupportedLanguage.values.toList().asMap().entries.map((entry) {
+          final e = entry.value;
+          final isLast = entry.key == ESupportedLanguage.values.length - 1;
+          return Column(
+            children: [
+              InkWell(
+                onTap: () => widget.changedLocale(e.name.toLowerCase()),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        e.title(context),
+                        style: context.theme.textTheme.titleLarge
+                            ?.copyWith(color: AppColors.grey),
+                      ),
+                      widget.defaultLocale?.languageCode.toLowerCase() ==
+                              e.name.toLowerCase()
+                          ? Container(
+                              height: 25,
+                              width: 25,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle, color: AppColors.white3),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: SvgPicture.asset(
+                                  ImageConstants.onSelectLetter,
+                                  height: 15,
+                                ),
+                              ),
+                            )
+                          : Container(),
+                    ],
                   ),
-                  widget.defaultLocale?.languageCode.toLowerCase() ==
-                          e.name.toLowerCase()
-                      ? Container(
-                          height: 25,
-                          width: 25,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: AppColors.white3),
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: SvgPicture.asset(
-                              ImageConstants.onSelectLetter,
-                              height: 15,
-                            ),
-                          ),
-                        )
-                      : Container(),
-                ],
+                ),
               ),
-            ),
-          ),
-        ),
+              if (!isLast) Divider(color: AppColors.white3, thickness: 0.1,),
+            ],
+          );
+        }).toList(),
       ],
     );
   }

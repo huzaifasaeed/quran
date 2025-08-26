@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:the_open_quran/constants/constants.dart';
+import 'package:the_open_quran/providers/favorites_provider.dart';
 import 'package:word_selectable_text/word_selectable_text.dart';
 
 import '../../models/bookmark_model.dart';
@@ -129,6 +130,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
         TextSpan(
             text: verse.text,
             style: TextStyle(
+              
                 // letterSpacing: 0.1,
                 wordSpacing: 0,
                 backgroundColor:
@@ -137,7 +139,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                             context
                                 .read<PlayerProvider>()
                                 .isPlayingVerse(verse.verseKey ?? ""))
-                        ? AppColors.brandy.withOpacity(0.3)
+                        ? AppColors.brandy.withOpacity(0.2)
                         : Colors.transparent),
             recognizer: LongPressGestureRecognizer()
               ..onLongPress = () async {
@@ -202,15 +204,21 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                       ),
                     ),
                     
-                    // PopupMenuItem(
-                    //   onTap: () => favoriteFunction(verseModel, isFavorite),
-                    //   child: VerseMenuItem(
-                    //     iconPath: isFavorite
-                    //         ? ImageConstants.favoriteActiveIcon
-                    //         : ImageConstants.favoriteInactiveIcon,
-                    //     buttonName: context.translate.favorite,
-                    //   ),
-                    // ),
+                    PopupMenuItem(
+                      onTap: () => context
+                          .read<FavoritesProvider>()
+                          .onTapFavoriteButton(verse,
+                              context.read<FavoritesProvider>().isFavoriteVerse(
+                                  verse)),// favoriteFunction(verseModel, isFavorite),
+                      child: VerseMenuItem(
+                        iconPath: context
+                                .read<FavoritesProvider>()
+                                .isFavoriteVerse(verse)
+                            ? ImageConstants.favoriteActiveIcon
+                            : ImageConstants.favoriteInactiveIcon,
+                        buttonName: context.translate.favorite,
+                      ),
+                    ),
                     PopupMenuItem(
                       onTap: () =>
                           context.read<BookmarkProvider>().onTapBookMarkButton(
@@ -242,6 +250,27 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                         buttonName: context.translate.share,
                       ),
                     ),
+                    PopupMenuItem(
+                      onTap: () => context
+                          .read<SurahDetailsProvider>()
+                          .onTapRepeat(verse.verseNumber! - 1),
+                      child: VerseMenuItem(
+                        iconPath: ImageConstants.repeatIcon,
+                        buttonName: context.translate.repeat,
+                      ),
+                    ),
+                    PopupMenuItem(
+                      onTap: () {
+                          context.read<PlayerProvider>().playSurah(
+                            context,
+                            verse.surahId,
+                          );
+                      },
+                      child: VerseMenuItem(
+                        iconPath: ImageConstants.repeatIcon,
+                        buttonName: context.translate.repeatSurah,
+                      ),
+                    ),
                   ],
                 );
                 context
@@ -251,6 +280,37 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
               }),
         TextSpan(
           children: [
+             context.read<BookmarkProvider>().isBookmark(
+                      BookMarkModel(
+                          bookmarkType: EBookMarkType.verse, verseModel: verse))
+                ? WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
+                    child: SizedBox(
+                      width: 2,
+                    )):TextSpan(),
+            //Favorite Icon
+            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SvgPicture.asset(
+            //           ImageConstants.favoriteActiveIcon,
+            //           width: 10,
+            //           color: context
+            //               .watch<QuranProvider>()
+            //               .surahDetailsPageThemeColor
+            //               .textColor,
+            //         ),
+            //       )
+            //     : TextSpan(),
+            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SizedBox(
+            //           width: 5,
+            //         ))
+            //     : TextSpan(),
+
+            //Bookmark Icon
             context.read<BookmarkProvider>().isBookmark(
                       BookMarkModel(
                           bookmarkType: EBookMarkType.verse, verseModel: verse),
@@ -259,11 +319,12 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                     alignment: PlaceholderAlignment.middle,
                     child: SvgPicture.asset(
                       ImageConstants.bookmarkIconCard,
-                      width: 10,
+                      width: 9,
+                      // color: AppColors.brandy,
                       color: context
-                          .watch<QuranProvider>()
-                          .surahDetailsPageThemeColor
-                          .textColor,
+                                      .watch<QuranProvider>()
+                                      .surahDetailsPageThemeColor
+                                      .textColor,
                     ),
                   )
                 : TextSpan(),
@@ -277,6 +338,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                       width: 5,
                     ))
                 : TextSpan(),
+                
             TextSpan(
               text: Utils.getArabicVerseNo(verse.verseNumber.toString()),
             ),
@@ -387,3 +449,4 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
     );
   }
 }
+

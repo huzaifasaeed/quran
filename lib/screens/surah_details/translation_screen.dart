@@ -127,6 +127,17 @@ class _TranslationScreenState extends State<TranslationScreen> {
       shareFunction: (verseModel) {
         context.read<SurahDetailsProvider>().shareVerse(verseModel, index);
       },
+      repeatAyatFunction: (verse, isPlaying) {
+        context
+                          .read<SurahDetailsProvider>()
+                          .onTapRepeat(verse.verseNumber! - 1);
+      },
+      repeatSurahFunction: (verse, isPlaying) {
+        context.read<PlayerProvider>().playSurah(
+              context,
+              verse.surahId,
+            );
+      },
       selectedVerseKey: context.watch<SurahDetailsProvider>().selectedVerseKey,
       changeSelectedVerseKey:
           context.read<SurahDetailsProvider>().changeSelectedVerseKey,

@@ -42,8 +42,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: Column(
         children: [
           Align(
-            alignment: Alignment.topLeft,
-            child: Text(
+            alignment: Directionality.of(context) == TextDirection.rtl
+          ? Alignment.topRight
+          : Alignment.topLeft,
+        child: Text(
               context.translate.settings,
               style: context.theme.textTheme.displayLarge,
             ),

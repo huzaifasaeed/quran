@@ -32,14 +32,17 @@ class _LanguageScreenState extends State<LanguageScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                context.translate.language,
-                style: context.theme.textTheme.displayLarge,
-              ),
-            ),
-            const SizedBox(height: 30),
+            // Align(
+            //   alignment:  Directionality.of(context) == TextDirection.rtl
+            //       ? Alignment.topRight
+            //       : Alignment.topLeft,
+            //   child: Text(
+            //     context.translate.language,
+            //     style: context.theme.textTheme.displayLarge,
+            //   ),
+            // ),
+            
+            // const SizedBox(height: 30),
             CustomLanguageCard(
               defaultLocale: context.watch<AppSettingsProvider>().appLocale,
               changedLocale: context.read<AppSettingsProvider>().changeAppLanguage,
@@ -52,7 +55,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
 
   PreferredSizeWidget get buildAppBar {
     return PrimaryAppBar(
-      title: context.translate.theOpenQuran,
+      title: context.translate.language,
       leading: IconButton(
         icon: SvgPicture.asset(ImageConstants.newBackArrow),
         onPressed: () => Navigator.pop(context),

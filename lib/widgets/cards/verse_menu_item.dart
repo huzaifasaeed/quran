@@ -15,7 +15,7 @@ class VerseMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 120,
+      width: 140,
       height: 45,
       child: Row(
         children: [
@@ -25,14 +25,15 @@ class VerseMenuItem extends StatelessWidget {
                 color: AppColors.white, width: kSizeXL, height: kSizeXL),
           ),
           const SizedBox(
-            width: kSizeL,
+            width: kSizeL-8,
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Text(
               buttonName,
               style: context.theme.textTheme.titleMedium
                   ?.copyWith(color: AppColors.white),
+              // overflow: TextOverflow.ellipsis,
             ),
           )
         ],

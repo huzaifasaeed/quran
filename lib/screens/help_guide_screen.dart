@@ -24,7 +24,7 @@ class _HelpGuideScreenState extends State<HelpGuideScreen> {
 
   PreferredSizeWidget get buildAppBar {
     return PrimaryAppBar(
-      title: context.translate.theOpenQuran,
+      title: context.translate.helpGuide,
       leading: IconButton(
         icon: SvgPicture.asset(ImageConstants.newBackArrow),
         onPressed: () => Navigator.pop(context),

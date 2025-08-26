@@ -21,6 +21,8 @@ class VerseCard extends StatelessWidget {
     required this.favoriteFunction,
     required this.bookmarkFunction,
     required this.shareFunction,
+    required this.repeatAyatFunction,
+    required this.repeatSurahFunction,
     this.isPlaying = false,
     this.isFavorite = false,
     this.isBookmark = false,
@@ -44,6 +46,8 @@ class VerseCard extends StatelessWidget {
           EBookMarkType bookMarkType, VerseModel verseModel, bool isBookmark)
       bookmarkFunction;
   final Function(VerseModel) shareFunction;
+  final Function(VerseModel verseModel, bool isPlaying) repeatAyatFunction;
+  final Function(VerseModel verseModel, bool isPlaying) repeatSurahFunction;
   final String? selectedVerseKey;
   final Function(String? selectedVerseKey) changeSelectedVerseKey;
 
@@ -60,6 +64,8 @@ class VerseCard extends StatelessWidget {
       isBookmark: isBookmark,
       bookmarkFunction: bookmarkFunction,
       shareFunction: shareFunction,
+      repeatAyatFunction: repeatAyatFunction,
+      repeatSurahFunction: repeatSurahFunction,
       changeSelectedVerseKey: changeSelectedVerseKey,
       child: Container(
         key: globalKey,
@@ -115,6 +121,18 @@ class VerseCard extends StatelessWidget {
                               .watch<QuranProvider>()
                               .surahDetailsPageThemeColor
                               .textColor,
+                        ),
+                      )
+                    : Container(),
+                isFavorite
+                    ? Padding(
+                        padding:
+                            const EdgeInsets.only(left: kSizeM, top: kSizeM),
+                        child: SvgPicture.asset(
+                          ImageConstants.favoriteActiveIcon,
+                          height: 18,
+                          width: 18,
+                          color: AppColors.brandy,
                         ),
                       )
                     : Container(),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -180,15 +182,20 @@ class SurahDetailsProvider extends ChangeNotifier {
 
   /// [SurahDetailsScreen] app bar title
   String get appBarTitle {
+    String localCountryCode =
+        LocalDb.getLocale?.languageCode ?? Platform.localeName.split("_").first;
     switch (quranProvider.localSetting.quranType) {
       case EQuranType.translation:
-        return quranProvider.surahs[readingSettings.surahIndex].nameSimple ??
-            "";
+        return localCountryCode == "ur" ||  localCountryCode == "ar" ?
+               quranProvider.surahs[readingSettings.surahIndex].nameArabic!:
+                quranProvider.surahs[readingSettings.surahIndex].nameSimple ?? "";
       case EQuranType.reading:
         var index = displayedVerses.indexWhere((element) =>
             element.pageNumber == readingSettings.mushafPageNumber);
         if (index == -1) return "";
-        return quranProvider
+        return localCountryCode == "ur" || localCountryCode == "ar"
+            ? quranProvider.surahs[readingSettings.surahIndex].nameArabic!
+            : quranProvider
                 .surahs[displayedVerses[index].surahId! - 1].nameSimple ??
             "";
     }
@@ -221,7 +228,11 @@ class SurahDetailsProvider extends ChangeNotifier {
       case EQuranType.reading:
         var index = displayedVerses.indexWhere((element) =>
             element.pageNumber == readingSettings.mushafPageNumber);
-        if (index == -1) surahId = null;
+        if (index == -1) 
+        {
+          surahId = null;
+          break;
+        }
         surahId = quranProvider.surahs[displayedVerses[index].surahId! - 1].id;
     }
     if (surahId == null) return false;
@@ -270,6 +281,12 @@ class SurahDetailsProvider extends ChangeNotifier {
     _context
         .read<PlayerProvider>()
         .onTapPlayOrPause(index, isPlaying, displayedVerses);
+  }
+
+  /// On Tap Repeat Button
+  void onTapRepeat(int index) {
+    _context.read<PlayerProvider>().onTapRepeat(index, displayedVerses);
+    notifyListeners();
   }
 
   /// Play The Mushaf Page

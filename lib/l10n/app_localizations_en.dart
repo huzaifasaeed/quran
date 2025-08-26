@@ -330,4 +330,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get openSourceDevelopedByFabrikod =>
       'open source developed by Huzaifa Saeed';
+
+  @override
+  String get repeat => 'Repeat Ayat';
+
+  @override
+  String get repeatSurah => 'Repeat Surah';
 }

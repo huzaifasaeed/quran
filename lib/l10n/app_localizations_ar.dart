@@ -208,7 +208,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get and => 'و';
 
   @override
-  String get theOpenQuran => 'Al-Quran';
+  String get theOpenQuran => 'ٱلْقُرْآن';
 
   @override
   String get bookmarks => 'إشارات مرجعية';
@@ -327,4 +327,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get openSourceDevelopedByFabrikod =>
       'تم تطويره من قبل شركة Huzaifa Saeed';
+
+  @override
+  String get repeat => 'يكرر';
+
+  @override
+  String get repeatSurah => 'كرر السورة';
 }

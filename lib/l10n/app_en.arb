@@ -100,6 +100,8 @@
     "nextSurah": "Next Surah",
     "previousSurah": "Previous Surah",
     "beginningOfSurah": "Beginning Of Surah",
-    "openSourceDevelopedByFabrikod": "open source developed by Huzaifa Saeed"
+    "openSourceDevelopedByFabrikod": "open source developed by Huzaifa Saeed",
+    "repeat": "Repeat Ayat",
+    "repeatSurah": "Repeat Surah"
 
 }

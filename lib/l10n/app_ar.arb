@@ -62,7 +62,7 @@
     "noBookMarksAdded": "لا توجد إشارات مرجعية مضافة",
     "noFavoritesAdded": "لا مفضلات مضافة",
     "and": "و",
-    "theOpenQuran": "Al-Quran",
+    "theOpenQuran": "ٱلْقُرْآن",
     "bookmarks": "إشارات مرجعية",
     "recent": "مؤخرًا",
     "read": "يقرأ",
@@ -100,5 +100,7 @@
     "nextSurah": "السورة التالية",
     "previousSurah": "السورة السابقة",
     "beginningOfSurah": "بداية السورة",
-    "openSourceDevelopedByFabrikod" : "تم تطويره من قبل شركة Huzaifa Saeed"
+    "openSourceDevelopedByFabrikod" : "تم تطويره من قبل شركة Huzaifa Saeed",
+    "repeat": "يكرر",
+    "repeatSurah": "كرر السورة"
 }

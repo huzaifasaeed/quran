@@ -99,7 +99,9 @@ class _JuzCategoryListWidgetState extends State<JuzCategoryListWidget> {
                 color: AppColors.black3,
               ),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Directionality.of(context) == TextDirection.rtl
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: Text(
                   "${context.translate.juz} $juzId",
                   style: context.theme.textTheme.headlineSmall?.copyWith(color: AppColors.grey),

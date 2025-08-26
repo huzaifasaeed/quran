@@ -45,7 +45,6 @@ class Fonts {
     "Noore",
     "Naskh",
     "Quran Font",
-    "Naskh",
     "Maiman"
   ];
 
@@ -65,8 +64,7 @@ class Fonts {
     if (fontName == arabicFontNames[7]) return noore;
     if (fontName == arabicFontNames[8]) return naskh;
     if (fontName == arabicFontNames[9]) return quranFont;
-    if (fontName == arabicFontNames[10]) return naskh;
-    if (fontName == arabicFontNames[11]) return maiman;
+    if (fontName == arabicFontNames[10]) return maiman;
     return uthmanic;
   }
 }

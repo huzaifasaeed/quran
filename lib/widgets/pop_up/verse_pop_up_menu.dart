@@ -16,6 +16,8 @@ class VersePopUpMenu extends StatelessWidget {
     required this.favoriteFunction,
     required this.bookmarkFunction,
     required this.shareFunction,
+    required this.repeatAyatFunction,
+    required this.repeatSurahFunction,
     this.isPlaying = false,
     this.isFavorite = false,
     this.isBookmark = false,
@@ -33,6 +35,8 @@ class VersePopUpMenu extends StatelessWidget {
           EBookMarkType bookMarkType, VerseModel verseModel, bool isBookmark)
       bookmarkFunction;
   final Function(VerseModel) shareFunction;
+  final Function(VerseModel verseModel, bool isPlaying) repeatAyatFunction;
+  final Function(VerseModel verseModel, bool isPlaying) repeatSurahFunction;
   final Function(String? selectedVerseKey) changeSelectedVerseKey;
 
   @override
@@ -96,6 +100,20 @@ class VersePopUpMenu extends StatelessWidget {
               child: VerseMenuItem(
                 iconPath: ImageConstants.shareAppIcon,
                 buttonName: context.translate.share,
+              ),
+            ),
+            PopupMenuItem(
+              onTap: () => repeatAyatFunction(verseModel, isPlaying),
+              child: VerseMenuItem(
+                iconPath: ImageConstants.repeatIcon,
+                buttonName: context.translate.repeat,
+              ),
+            ),
+            PopupMenuItem(
+              onTap: repeatSurahFunction(verseModel, isPlaying),
+              child: VerseMenuItem(
+                iconPath: ImageConstants.repeatIcon,
+                buttonName: context.translate.repeatSurah,
               ),
             ),
           ],

@@ -713,6 +713,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'open source developed by Huzaifa Saeed'**
   String get openSourceDevelopedByFabrikod;
+
+  /// No description provided for @repeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat Ayat'**
+  String get repeat;
+
+  /// No description provided for @repeatSurah.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat Surah'**
+  String get repeatSurah;
 }
 
 class _AppLocalizationsDelegate

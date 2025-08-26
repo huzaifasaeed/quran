@@ -100,5 +100,7 @@
     "nextSurah": "Sonraki Sure",
     "previousSurah": "Önceki Sure",
     "beginningOfSurah": "Sure Başlangıcı",
-    "openSourceDevelopedByFabrikod" : "Huzaifa Saeed tarafından açık kaynaklı geliştirilmiştir"
+    "openSourceDevelopedByFabrikod" : "Huzaifa Saeed tarafından açık kaynaklı geliştirilmiştir",
+    "repeat": "Tekrarla",
+    "repeatSurah": "Sureyi Tekrarla"
 }

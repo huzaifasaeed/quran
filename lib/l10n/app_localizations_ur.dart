@@ -33,7 +33,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get sajda => 'سجدة';
 
   @override
-  String get ayat => 'آیت';
+  String get ayat => 'آیات';
 
   @override
   String get favorites => 'پسندیدہ';
@@ -208,7 +208,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get and => 'اور';
 
   @override
-  String get theOpenQuran => 'دی اوپن قرآن';
+  String get theOpenQuran => 'القرآن';
 
   @override
   String get bookmarks => 'نشانیاں';
@@ -328,4 +328,10 @@ class AppLocalizationsUr extends AppLocalizations {
   @override
   String get openSourceDevelopedByFabrikod =>
       'open source developed by Huzaifa Saeed';
+
+  @override
+  String get repeat => 'آیت دہرائیں';
+
+  @override
+  String get repeatSurah => 'سورة دہرائیں';
 }

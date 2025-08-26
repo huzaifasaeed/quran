@@ -7,7 +7,7 @@
     "hizb": "حزب",
     "bookmark": "نشانی",
     "sajda": "سجدة",
-    "ayat": "آیت",
+    "ayat": "آیات",
     "favorites": "پسندیدہ",
     "language": "زبان",
     "helpGuide": "ہدایات",
@@ -62,7 +62,7 @@
     "noBookMarksAdded": "کوئی نشانی شامل نہیں کی گئی",
     "noFavoritesAdded": "کوئی پسندیدہ شامل نہیں کیا گیا",
     "and": "اور",
-    "theOpenQuran": "دی اوپن قرآن",
+    "theOpenQuran": "القرآن",
     "bookmarks": "نشانیاں",
     "recent": "حالیہ",
     "read": "پڑھیں",
@@ -99,5 +99,7 @@
     "privacyPolicy": "پرائیویسی پالیسی",
     "nextSurah": "اگلی سورة",
     "previousSurah": "پچھلی سورة",
-    "beginningOfSurah": "سورة کا آغاز"
+    "beginningOfSurah": "سورة کا آغاز",
+    "repeat": "آیت دہرائیں",
+    "repeatSurah": "سورة دہرائیں"
 }

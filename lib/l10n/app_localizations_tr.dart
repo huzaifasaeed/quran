@@ -328,4 +328,10 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get openSourceDevelopedByFabrikod =>
       'Huzaifa Saeed tarafından açık kaynaklı geliştirilmiştir';
+
+  @override
+  String get repeat => 'Tekrarla';
+
+  @override
+  String get repeatSurah => 'Sureyi Tekrarla';
 }

@@ -46,3 +46,6 @@ enum EPlayerState { stop, playing, pause }
 
 /// Download statuses for Verse Translations
 enum EVerseTranslationState { download, downloading, downloaded }
+
+/// Player repeat states
+enum RepeatState { none, verse, surah }
