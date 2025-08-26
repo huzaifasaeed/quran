@@ -7,4 +7,5 @@ export 'padding.dart';
 export 'enums.dart';
 export 'restful.dart';
 export 'extensions.dart';
+export 'app_update.dart';
 export '../utils/utils.dart';

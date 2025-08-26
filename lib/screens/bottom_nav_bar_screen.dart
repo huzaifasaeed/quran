@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:the_open_quran/constants/app_update.dart';
 import 'package:the_open_quran/screens/settings_screen.dart';
 
 import '../constants/colors.dart';
@@ -34,6 +35,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     context.read<PlayerProvider>().createAudioHandler(context);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _requestNotificationPermission();
+      AppUpdate.versionCheck(context);
     });
   }
 
