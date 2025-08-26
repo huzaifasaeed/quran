@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:get_storage/get_storage.dart';
+import 'package:the_open_quran/utils/locale_utils.dart';
+
 import '../constants/enums.dart';
 import '../database/local_db.dart';
 import '../managers/translation_download_manager.dart';
@@ -21,17 +24,38 @@ class TranslationService {
   Future _init() async {
     allTranslationCountry = await AssetQuranService.getTranslations();
     await _getVerseTranslationListFromAsset("en", 131);
-    await _getVerseTranslationListFromAsset("tr", 77);
+    await _getVerseTranslationListFromAsset("ur", 54);
+    // await _getVerseTranslationListFromAsset("tr", 77);
 
-    String localCountryCode =
-        LocalDb.getLocale?.countryCode ?? Platform.localeName.split("_").first;
-    if (localCountryCode == "tr") {
-      var author = _getTranslationAuthor(77);
-      if (author != null) author.isTranslationSelected = true;
+    final box = GetStorage('Al-Quran');
+    final isFirstRun = box.read("isFirstRunTranslation") ?? true;
+
+    if (isFirstRun) 
+    {
+      String localCountryCode =
+          LocalDb.getLocale?.countryCode ?? Platform.localeName.split("_").first;
+      bool isPakistani = await LocaleUtils.isUserFromPakistan();
+      if (localCountryCode == "ur" || isPakistani) {
+        var author = _getTranslationAuthor(54);
+        if (author != null) author.isTranslationSelected = true;
+      } else {
+        var author = _getTranslationAuthor(131);
+        if (author != null) author.isTranslationSelected = true;
+      }
+      await saveSelectedAuthors(); // save default selection
+      await box.write("isFirstRunTranslation", false);
     } else {
-      var author = _getTranslationAuthor(131);
-      if (author != null) author.isTranslationSelected = true;
+      // restore selected authors
+      List<dynamic>? savedAuthors = box.read("selectedAuthors");
+      if (savedAuthors != null) {
+        for (var id in savedAuthors) {
+          var author = _getTranslationAuthor(id);
+          if (author != null) author.isTranslationSelected = true;
+        }
+      }
     }
+
+    // restore downloaded translations
     var authors = await TranslationDownloadManager.getTranslationAuthors();
     for (var element in authors) {
       TranslationAuthor? author = _getTranslationAuthor(element.resourceId);
@@ -41,6 +65,13 @@ class TranslationService {
         author.verseTranslationState = EVerseTranslationState.downloaded;
       }
     }
+  }
+
+  /// save selected authors in GetStorage
+  Future<void> saveSelectedAuthors() async {
+    final box = GetStorage('Al-Quran');
+    final ids = selectedTranslationAuthors.map((e) => e.resourceId).toList();
+    await box.write("selectedAuthors", ids);
   }
 
   /// List of selected translations in downloaded list

@@ -83,7 +83,7 @@ class Assets {
   static const String imagesLogoPic = 'assets/images/logo_pic.png';
   static const String jsonQuran = 'assets/json/quran.json';
   static const String translationsEnDefault = 'assets/json/translations/en_default.json';
-  static const String translationsTrDefault = 'assets/json/translations/tr_default.json';
+  static const String translationsUrDefault = 'assets/json/translations/ur_default.json';
   static const String translationsTranslations = 'assets/json/translations/translations.json';
 
 }

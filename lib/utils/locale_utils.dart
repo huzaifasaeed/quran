@@ -16,4 +16,5 @@ class LocaleUtils {
     }
     return "Uthmani"; // Default font for other users
   }
+  
 }

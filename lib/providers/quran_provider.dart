@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/colors.dart';
@@ -108,6 +109,7 @@ class QuranProvider extends ChangeNotifier {
           TranslationDownloadManager.changeSelectedStateOfAuthor(
               translationAuthor.resourceId!, true);
         }
+        await translationService.saveSelectedAuthors();
         break;
     }
     notifyListeners();
@@ -119,11 +121,16 @@ class QuranProvider extends ChangeNotifier {
     _isLocalSettingsInitialized = true;
 
     localSetting = LocalDb.getLocalSettingOfQuran;
-    if (localSetting.fontTypeArabic == "Uthmani") {
-      var font =
-          await LocaleUtils.getDefaultArabicFontForLocale();
-       localSetting.fontTypeArabic=font;
+
+    final box = GetStorage('Al-Quran');
+    final isFirstRun = box.read("isFirstRun") ?? true;
+    if (isFirstRun) {
+      var font = await LocaleUtils.getDefaultArabicFontForLocale();
+      localSetting.fontTypeArabic = font;
       await setLocalSettingOfQuran();
+
+      // Mark first run complete
+      await box.write("isFirstRun", false);
     }
     notifyListeners();
   }

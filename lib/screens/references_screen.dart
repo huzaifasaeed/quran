@@ -60,7 +60,7 @@ class _ReferencesScreenState extends State<ReferencesScreen> {
                     height: 5,
                   ),
                   Text(
-                    "Version 1.0.3",
+                    "Version 1.0.4",
                     style: context.theme.textTheme.bodyMedium,
                   ),
                   const SizedBox(
