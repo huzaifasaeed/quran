@@ -117,10 +117,10 @@ class VerseCard extends StatelessWidget {
                             const EdgeInsets.only(left: kSizeM, top: kSizeM),
                         child: SvgPicture.asset(
                           ImageConstants.bookmarkIconCard,
-                          color: context
-                              .watch<QuranProvider>()
-                              .surahDetailsPageThemeColor
-                              .textColor,
+                          // color: context
+                          //     .watch<QuranProvider>()
+                          //     .surahDetailsPageThemeColor
+                          //     .textColor,
                         ),
                       )
                     : Container(),

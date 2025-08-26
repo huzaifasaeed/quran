@@ -133,3 +133,6 @@ flutter:
     - family: Maiman
       fonts:
         - asset: assets/fonts/Maiman Nastaliq Web.ttf
+    - family: SurahName
+      fonts:
+        - asset: assets/fonts/Surah Name V4.ttf

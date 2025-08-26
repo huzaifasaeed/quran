@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:the_open_quran/constants/constants.dart';
 import 'package:the_open_quran/database/local_db.dart';
+import 'package:the_open_quran/generated/assets.dart';
 
 import '../constants/images.dart';
 import '../constants/padding.dart';
@@ -45,36 +46,84 @@ class BasmalaTitle extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.center,
       children: [
-        SvgPicture.asset(ImageConstants.titleFrame,
-            color: context
-                .watch<QuranProvider>()
-                .surahDetailsPageThemeColor
-                .titleVectorColor),
-        Text(
-          surahName(context),
-          style: context.theme.textTheme.headlineLarge?.copyWith(
-            color: context
-                .watch<QuranProvider>()
-                .surahDetailsPageThemeColor
-                .textColor,
-            letterSpacing: 0.04,
-          ),
+        SvgPicture.asset(
+          ImageConstants.titleFrame,
+          color: context
+              .watch<QuranProvider>()
+              .surahDetailsPageThemeColor
+              .titleVectorColor,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  surahNameInEnglish(context),
+                  style: context.theme.textTheme.headlineLarge?.copyWith(
+                    color: context
+                        .watch<QuranProvider>()
+                        .surahDetailsPageThemeColor
+                        .textColor,
+                    // fontFamily: "SurahName",
+                    // letterSpacing: 0.04,
+                  ),
+                ),
+              ),
+            ),
+            Text('~',
+                style: context.theme.textTheme.headlineLarge?.copyWith(
+                  color: context
+                      .watch<QuranProvider>()
+                      .surahDetailsPageThemeColor
+                      .textColor,
+                )),
+            Expanded(
+              child:Padding(padding: 
+                  EdgeInsets.only(bottom: 5.0),
+                child:  Align(
+                alignment: Alignment.center,
+                child: Text(
+                  surahName(context),
+                  style: context.theme.textTheme.headlineLarge?.copyWith(
+                    color: context
+                        .watch<QuranProvider>()
+                        .surahDetailsPageThemeColor
+                        .textColor,
+                    fontFamily: "SurahName",
+                    fontSize: 34,
+                  ),
+                ),
+              )),
+            ),
+          ],
         ),
       ],
     );
+
   }
 
   /// Returning surah name
   String surahName(BuildContext context) {
-    String localCountryCode =
-        LocalDb.getLocale?.languageCode ?? Platform.localeName.split("_").first;
+    // String localCountryCode =
+    //     LocalDb.getLocale?.languageCode ?? Platform.localeName.split("_").first;
     var list = verseKey.split(':');
     int index = int.parse(list.first);
-    return  localCountryCode == "ur" || localCountryCode == "ar"
-        ? context
-            .read<QuranProvider>()
-            .surahs[index - 1].nameArabic!
-        : context.read<QuranProvider>().surahs[index - 1].nameSimple ?? "";
+    return "surah${index.toString().padLeft(3, '0')}";
+    // localCountryCode == "ur" || localCountryCode == "ar"
+    //     ? context
+    //         .read<QuranProvider>()
+    //         .surahs[index - 1].nameArabic!
+    //     : 
+        // context.read<QuranProvider>().surahs[index - 1].nameArabic ?? "";
+  }
+  String surahNameInEnglish(BuildContext context) {
+    // String localCountryCode =
+    //     LocalDb.getLocale?.languageCode ?? Platform.localeName.split("_").first;
+    var list = verseKey.split(':');
+    int index = int.parse(list.first);
+    return context.read<QuranProvider>().surahs[index - 1].nameSimple ?? "";
   }
 
   /// İs Title Visible

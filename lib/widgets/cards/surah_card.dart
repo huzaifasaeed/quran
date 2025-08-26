@@ -38,12 +38,13 @@ class SurahCard extends StatelessWidget {
             const SizedBox(width: kSizeXXL),
             Expanded(child: buildSurahNames(context)),
             const SizedBox(width: kSizeXXL),
-            localCountryCode=='en'?
+            localCountryCode=='en'|| localCountryCode == 'tr'
+                ?
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildSurahNamesInArabic(context),
-                SizedBox(height: kSizeS),
+                // SizedBox(height: 0),
                 buildVersesCount(context),
               ],
             ): buildVersesCount(context),
@@ -99,10 +100,11 @@ class SurahCard extends StatelessWidget {
           localCountryCode == "tr"
               ? surahModel.nameTurkish.toString():
               localCountryCode == "ur" || localCountryCode == "ar"
-              ? surahModel.nameArabic.toString()
+              ? "surah${surahModel.id.toString().padLeft(3, '0')}"
               : surahModel.nameSimple.toString(),
           style: context.theme.textTheme.headlineSmall?.copyWith(
-            fontFamily: localCountryCode == "ur" || localCountryCode == "ar" ? Fonts.getArabicFont("Me") : null,
+            fontFamily: localCountryCode == "ur" || localCountryCode == "ar" ? "SurahName" : null,
+            fontSize: localCountryCode == "ur" || localCountryCode == "ar"? 34 : null,
             letterSpacing: 0.04,
             color: AppColors.grey,
           ),
@@ -125,10 +127,11 @@ Widget buildSurahNamesInArabic(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          surahModel.nameArabic.toString(),
+          "surah${surahModel.id.toString().padLeft(3, '0')}",
           style: context.theme.textTheme.headlineSmall?.copyWith(
-            fontFamily: Fonts.getArabicFont("Me"),
-            letterSpacing: 0.04,
+            fontFamily: "SurahName",
+            fontSize: 30,
+            // letterSpacing: 0.04,
             color: AppColors.grey,
           ),
         ),

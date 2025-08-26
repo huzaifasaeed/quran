@@ -282,33 +282,34 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
           children: [
              context.read<BookmarkProvider>().isBookmark(
                       BookMarkModel(
-                          bookmarkType: EBookMarkType.verse, verseModel: verse))
+                          bookmarkType: EBookMarkType.verse, verseModel: verse)) || context.read<FavoritesProvider>().isFavoriteVerse(verse)
                 ? WidgetSpan(
                     alignment: PlaceholderAlignment.middle,
                     child: SizedBox(
                       width: 2,
                     )):TextSpan(),
             //Favorite Icon
-            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
-            //     ? WidgetSpan(
-            //         alignment: PlaceholderAlignment.middle,
-            //         child: SvgPicture.asset(
-            //           ImageConstants.favoriteActiveIcon,
-            //           width: 10,
-            //           color: context
-            //               .watch<QuranProvider>()
-            //               .surahDetailsPageThemeColor
-            //               .textColor,
-            //         ),
-            //       )
-            //     : TextSpan(),
-            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
-            //     ? WidgetSpan(
-            //         alignment: PlaceholderAlignment.middle,
-            //         child: SizedBox(
-            //           width: 5,
-            //         ))
-            //     : TextSpan(),
+            context.read<FavoritesProvider>().isFavoriteVerse(verse)
+                ? WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
+                    child: SvgPicture.asset(
+                      ImageConstants.favoriteActiveIcon,
+                      width: 10,
+                      color: AppColors.brandy,
+                      // color: context
+                      //     .watch<QuranProvider>()
+                      //     .surahDetailsPageThemeColor
+                      //     .textColor,
+                    ),
+                  )
+                : TextSpan(),
+            context.read<FavoritesProvider>().isFavoriteVerse(verse)
+                ? WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
+                    child: SizedBox(
+                      width: 5,
+                    ))
+                : TextSpan(),
 
             //Bookmark Icon
             context.read<BookmarkProvider>().isBookmark(
@@ -321,10 +322,10 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                       ImageConstants.bookmarkIconCard,
                       width: 9,
                       // color: AppColors.brandy,
-                      color: context
-                                      .watch<QuranProvider>()
-                                      .surahDetailsPageThemeColor
-                                      .textColor,
+                      // color: context
+                      //                 .watch<QuranProvider>()
+                      //                 .surahDetailsPageThemeColor
+                      //                 .textColor,
                     ),
                   )
                 : TextSpan(),
