@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:the_open_quran/constants/constants.dart';
+import 'package:the_open_quran/database/local_db.dart';
 import 'package:the_open_quran/providers/favorites_provider.dart';
 import 'package:word_selectable_text/word_selectable_text.dart';
 
@@ -128,7 +129,7 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
       final verse = list[index];
       final span = TextSpan(children: [
         TextSpan(
-            text: verse.text,
+            text: LocalDb.getLocalSettingOfQuran.fontTypeArabic== Fonts.indoPak ? verse.textIndoPak : verse.text,
             style: TextStyle(
               
                 // letterSpacing: 0.1,
@@ -204,43 +205,43 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
                       ),
                     ),
                     
-                    PopupMenuItem(
-                      onTap: () => context
-                          .read<FavoritesProvider>()
-                          .onTapFavoriteButton(verse,
-                              context.read<FavoritesProvider>().isFavoriteVerse(
-                                  verse)),// favoriteFunction(verseModel, isFavorite),
-                      child: VerseMenuItem(
-                        iconPath: context
-                                .read<FavoritesProvider>()
-                                .isFavoriteVerse(verse)
-                            ? ImageConstants.favoriteActiveIcon
-                            : ImageConstants.favoriteInactiveIcon,
-                        buttonName: context.translate.favorite,
-                      ),
-                    ),
-                    PopupMenuItem(
-                      onTap: () =>
-                          context.read<BookmarkProvider>().onTapBookMarkButton(
-                                EBookMarkType.verse,
-                                verse,
-                                context.read<BookmarkProvider>().isBookmark(
-                                      BookMarkModel(
-                                          bookmarkType: EBookMarkType.verse,
-                                          verseModel: verse),
-                                    ),
-                              ),
-                      child: VerseMenuItem(
-                        iconPath: context.read<BookmarkProvider>().isBookmark(
-                                  BookMarkModel(
-                                      bookmarkType: EBookMarkType.verse,
-                                      verseModel: verse),
-                                )
-                            ? ImageConstants.bookmarkActiveIcon
-                            : ImageConstants.bookmarkInactiveIcon,
-                        buttonName: context.translate.bookmark,
-                      ),
-                    ),
+                    // PopupMenuItem(
+                    //   onTap: () => context
+                    //       .read<FavoritesProvider>()
+                    //       .onTapFavoriteButton(verse,
+                    //           context.read<FavoritesProvider>().isFavoriteVerse(
+                    //               verse)),// favoriteFunction(verseModel, isFavorite),
+                    //   child: VerseMenuItem(
+                    //     iconPath: context
+                    //             .read<FavoritesProvider>()
+                    //             .isFavoriteVerse(verse)
+                    //         ? ImageConstants.favoriteActiveIcon
+                    //         : ImageConstants.favoriteInactiveIcon,
+                    //     buttonName: context.translate.favorite,
+                    //   ),
+                    // ),
+                    // PopupMenuItem(
+                    //   onTap: () =>
+                    //       context.read<BookmarkProvider>().onTapBookMarkButton(
+                    //             EBookMarkType.verse,
+                    //             verse,
+                    //             context.read<BookmarkProvider>().isBookmark(
+                    //                   BookMarkModel(
+                    //                       bookmarkType: EBookMarkType.verse,
+                    //                       verseModel: verse),
+                    //                 ),
+                    //           ),
+                    //   child: VerseMenuItem(
+                    //     iconPath: context.read<BookmarkProvider>().isBookmark(
+                    //               BookMarkModel(
+                    //                   bookmarkType: EBookMarkType.verse,
+                    //                   verseModel: verse),
+                    //             )
+                    //         ? ImageConstants.bookmarkActiveIcon
+                    //         : ImageConstants.bookmarkInactiveIcon,
+                    //     buttonName: context.translate.bookmark,
+                    //   ),
+                    // ),
                     PopupMenuItem(
                       onTap: () => context
                           .read<SurahDetailsProvider>()
@@ -280,69 +281,100 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
               }),
         TextSpan(
           children: [
-             context.read<BookmarkProvider>().isBookmark(
-                      BookMarkModel(
-                          bookmarkType: EBookMarkType.verse, verseModel: verse)) || context.read<FavoritesProvider>().isFavoriteVerse(verse)
-                ? WidgetSpan(
-                    alignment: PlaceholderAlignment.middle,
-                    child: SizedBox(
-                      width: 2,
-                    )):TextSpan(),
-            //Favorite Icon
-            context.read<FavoritesProvider>().isFavoriteVerse(verse)
-                ? WidgetSpan(
-                    alignment: PlaceholderAlignment.middle,
-                    child: SvgPicture.asset(
-                      ImageConstants.favoriteActiveIcon,
-                      width: 10,
-                      color: AppColors.brandy,
-                      // color: context
-                      //     .watch<QuranProvider>()
-                      //     .surahDetailsPageThemeColor
-                      //     .textColor,
-                    ),
-                  )
-                : TextSpan(),
-            context.read<FavoritesProvider>().isFavoriteVerse(verse)
-                ? WidgetSpan(
-                    alignment: PlaceholderAlignment.middle,
-                    child: SizedBox(
-                      width: 5,
-                    ))
-                : TextSpan(),
-
-            //Bookmark Icon
-            context.read<BookmarkProvider>().isBookmark(
-                      BookMarkModel(
-                          bookmarkType: EBookMarkType.verse, verseModel: verse),
-                    )
-                ? WidgetSpan(
-                    alignment: PlaceholderAlignment.middle,
-                    child: SvgPicture.asset(
-                      ImageConstants.bookmarkIconCard,
-                      width: 9,
-                      // color: AppColors.brandy,
-                      // color: context
-                      //                 .watch<QuranProvider>()
-                      //                 .surahDetailsPageThemeColor
-                      //                 .textColor,
-                    ),
-                  )
-                : TextSpan(),
-            context.read<BookmarkProvider>().isBookmark(
-                      BookMarkModel(
-                          bookmarkType: EBookMarkType.verse, verseModel: verse),
-                    )
-                ? WidgetSpan(
-                    alignment: PlaceholderAlignment.middle,
-                    child: SizedBox(
-                      width: 5,
-                    ))
-                : TextSpan(),
-                
             TextSpan(
-              text: Utils.getArabicVerseNo(verse.verseNumber.toString()),
-            ),
+              children: [
+                // Verse Number
+                TextSpan(
+                  text: Utils.getArabicVerseNo(
+                    verse.surahId == 1
+                        ? (verse.verseNumber! - 1).toString()
+                        : verse.verseNumber.toString(),
+                        
+                  ),
+                  style: TextStyle(
+                    fontFamily: Fonts.uthmanicIcon,
+                  )
+                ),
+
+            //  context.read<BookmarkProvider>().isBookmark(
+            //           BookMarkModel(
+            //               bookmarkType: EBookMarkType.verse, verseModel: verse)) || context.read<FavoritesProvider>().isFavoriteVerse(verse)
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SizedBox(
+            //           width: 2,
+            //         )):TextSpan(),
+            // //Favorite Icon
+            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SvgPicture.asset(
+            //           ImageConstants.favoriteActiveIcon,
+            //           width: 10,
+            //           color: AppColors.brandy,
+            //           // color: context
+            //           //     .watch<QuranProvider>()
+            //           //     .surahDetailsPageThemeColor
+            //           //     .textColor,
+            //         ),
+            //       )
+            //     : TextSpan(),
+            // context.read<FavoritesProvider>().isFavoriteVerse(verse)
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SizedBox(
+            //           width: 5,
+            //         ))
+            //     : TextSpan(),
+
+            // //Bookmark Icon
+            // context.read<BookmarkProvider>().isBookmark(
+            //           BookMarkModel(
+            //               bookmarkType: EBookMarkType.verse, verseModel: verse),
+            //         )
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SvgPicture.asset(
+            //           ImageConstants.bookmarkIconCard,
+            //           width: 9,
+            //           // color: AppColors.brandy,
+            //           // color: context
+            //           //                 .watch<QuranProvider>()
+            //           //                 .surahDetailsPageThemeColor
+            //           //                 .textColor,
+            //         ),
+            //       )
+            //     : TextSpan(),
+            // context.read<BookmarkProvider>().isBookmark(
+            //           BookMarkModel(
+            //               bookmarkType: EBookMarkType.verse, verseModel: verse),
+            //         )
+            //     ? WidgetSpan(
+            //         alignment: PlaceholderAlignment.middle,
+            //         child: SizedBox(
+            //           width: 5,
+            //         ))
+            //     : TextSpan(),
+                
+           
+
+                // اگر یہ رکوع کا اختتام ہے تو "ع + نمبر" گول دائرے میں اوپر دکھائیں
+                // if (isRukuEnding(verse, list))
+                //   WidgetSpan(
+                //     alignment: PlaceholderAlignment.middle,
+                //     child:  Text(
+                //       "",
+                //       style: const TextStyle(
+                //         fontFamily: Fonts.indoPak,
+                //         fontSize: 10,
+                //       ),
+                //     ),
+                //   ),
+              ],
+            )
+
+
+
           ],
           style: context.theme.textTheme.headlineLarge?.copyWith(
               fontFamily: Fonts.uthmanicIcon,
@@ -417,6 +449,14 @@ class _QuranPageWidgetState extends State<QuranPageWidget> {
         //     .toList(),
       ),
     );
+  }
+
+  bool isRukuEnding(VerseModel verse, List<VerseModel> verses) {
+    int index = verses.indexOf(verse);
+    if (index == -1 || index == verses.length - 1) {
+      return true; // last verse of surah
+    }
+    return verse.rukuNumber != verses[index + 1].rukuNumber;
   }
 
 

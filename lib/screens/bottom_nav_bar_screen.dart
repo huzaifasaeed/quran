@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:the_open_quran/constants/app_update.dart';
 import 'package:the_open_quran/screens/settings_screen.dart';
@@ -36,8 +38,64 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _requestNotificationPermission();
       AppUpdate.versionCheck(context);
+      // mergeJsonFiles();
     });
   }
+
+  // Future<void> mergeJsonFiles() async {
+  //   try {
+  //     // Load indopak.json and quran.json from assets
+  //     String indopakJsonString = await DefaultAssetBundle.of(context)
+  //         .loadString('assets/json/indopak.json');
+  //     String uthmaniTajweedJsonString = await DefaultAssetBundle.of(context)
+  //         .loadString('assets/json/uthmani_tajweed.json');
+  //     String quranJsonString =
+  //         await DefaultAssetBundle.of(context).loadString('assets/json/quran.json');
+
+  //     // Parse JSON strings
+  //     Map<String, dynamic> indopakData = jsonDecode(indopakJsonString);
+  //     Map<String, dynamic> uthmaniTajweedData = jsonDecode(uthmaniTajweedJsonString);
+  //     List<dynamic> quranData = jsonDecode(quranJsonString);
+
+  //     // Create a map for quick lookup of text_indopak by verse_key
+  //     Map<String, String> indopakDict = {
+  //       for (var verse in indopakData['verses'])
+  //         verse['verse_key']: verse['text_indopak']
+  //     };
+  //     Map<String, String> uthmaniTajweedDict = {
+  //       for (var verse in uthmaniTajweedData['verses'])
+  //         verse['verse_key']: verse['text_uthmani_tajweed']
+  //     };
+
+  //     // Iterate through quran.json to insert text_indopak
+  //     for (var surah in quranData) {
+  //       for (var verse in surah['verses']) {
+  //         String verseKey = verse['verse_key'];
+  //         if (indopakDict.containsKey(verseKey)) {
+  //           verse['text_indopak'] = indopakDict[verseKey];
+  //         }
+  //         if (uthmaniTajweedDict.containsKey(verseKey)) {
+  //           verse['text_uthmani_tajweed'] = uthmaniTajweedDict[verseKey];
+  //         }
+  //       }
+  //     }
+
+  //     // Get the temporary directory to save the updated file
+  //     Directory? docDir = await getDownloadsDirectory();
+  //     File outputFile = File('${docDir!.path}/quran_updated.json');
+
+  //     // Write the updated quran.json
+  //     await outputFile.writeAsString(jsonEncode(quranData), encoding: utf8);
+  //     print(outputFile.absolute.path);
+  //     // setState(() {
+  //     //   _status = 'Merge successful! File saved to: ${outputFile.path}';
+  //     // });
+  //   } catch (e) {
+  //     // setState(() {
+  //     //   _status = 'Error: $e';
+  //     // });
+  //   }
+  // }
 
   Future<void> _requestNotificationPermission() async {
     try {

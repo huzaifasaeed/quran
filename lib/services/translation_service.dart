@@ -34,7 +34,7 @@ class TranslationService {
     {
       String localCountryCode =
           LocalDb.getLocale?.countryCode ?? Platform.localeName.split("_").first;
-      bool isPakistani = await LocaleUtils.isUserFromPakistan();
+      bool isPakistani = await LocaleUtils.isUserFromPakistanIndia();
       if (localCountryCode == "ur" || isPakistani) {
         var author = _getTranslationAuthor(54);
         if (author != null) author.isTranslationSelected = true;
